@@ -9,9 +9,9 @@ Which passenger characteristics were associated with survival on the Titanic, an
 ## Submission links
 
 - **Executed Jupyter notebook:** [`titanic_analysis.ipynb`](titanic_analysis.ipynb)
-- **Medium article:** To be added after publication
-- **Exported ChatGPT transcript/PDF:** To be added
-- **YouTube walkthrough:** To be added after all other Part 1 materials are complete
+- **Medium article:** [Read on Medium](https://medium.com/@byeonggwan.cho/predicting-titanic-survival-with-crisp-dm-5a757e4df9d5)
+- **Exported ChatGPT transcript/PDF:** [`Assignment-1_GPT_Script.pdf`](Assignment-1_GPT_Script.pdf)
+- **YouTube walkthrough:** [Watch on YouTube](https://youtu.be/pWoM2SwEzJQ)
 
 ## Dataset
 
@@ -178,7 +178,7 @@ python -m pip install -r requirements.txt
 
 Open `titanic_analysis.ipynb` in VS Code, select `.venv/bin/python` as the Jupyter kernel, and run all cells. The notebook reads `data/train.csv` and recreates the charts and tables under `titanic_notebook_outputs/`.
 
-## Toolsㄴ
+## Tools
 
 - Python
 - pandas and NumPy
@@ -201,4 +201,4 @@ The project uses `random_state=42` for the train-validation split, cross-validat
 
 The complete notebook, charts, and reproducibility instructions are available in my [GitHub repository](https://github.com/atomicbunnies/assignment-1.git).
 
-A complete video walkthrough is available on [YouTube](To_be_added).
+A complete video walkthrough is available on [YouTube](https://youtu.be/pWoM2SwEzJQ).
