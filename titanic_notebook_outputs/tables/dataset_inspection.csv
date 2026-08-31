@@ -1,0 +1,13 @@
+,Data type,Missing values,Unique values
+PassengerId,int64,0,891
+Survived,int64,0,2
+Pclass,int64,0,3
+Name,object,0,891
+Sex,object,0,2
+Age,float64,177,89
+SibSp,int64,0,7
+Parch,int64,0,7
+Ticket,object,0,681
+Fare,float64,0,248
+Cabin,object,687,148
+Embarked,object,2,4

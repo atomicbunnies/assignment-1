@@ -1,0 +1,10 @@
+Item,Decision
+Age,Training median (28.5)
+Embarked,Training mode (S)
+Fare,Training median fallback (14.4542) before FareLog
+Cabin,Do not guess; create CabinKnown and remove raw Cabin
+Fare,Keep FareLog; remove raw Fare
+"SibSp, Parch",Replace with FamilySize and IsAlone
+Name,"Extract Title, then remove raw Name"
+Ticket,Remove high-cardinality identifier
+Pclass,Treat as categorical and one-hot encode

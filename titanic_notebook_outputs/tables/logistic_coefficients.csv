@@ -1,0 +1,19 @@
+Feature,Coefficient,Direction,Absolute coefficient
+categorical__Title_Master,1.2296912757036222,Toward survival,1.2296912757036222
+categorical__Sex_female,0.8319773253523676,Toward survival,0.8319773253523676
+categorical__Title_Mrs,0.583505890960479,Toward survival,0.583505890960479
+numeric__CabinKnown,0.46748801815236013,Toward survival,0.46748801815236013
+numeric__FareLog,0.43792748284978356,Toward survival,0.43792748284978356
+categorical__Embarked_Q,0.3402900744840306,Toward survival,0.3402900744840306
+categorical__Pclass_1,0.27673767181672393,Toward survival,0.27673767181672393
+categorical__Pclass_2,0.26476100058159563,Toward survival,0.26476100058159563
+categorical__Embarked_C,0.030514328471861148,Toward survival,0.030514328471861148
+numeric__IsAlone,-0.057371572973715826,Toward not surviving,0.057371572973715826
+categorical__Title_Miss,-0.1166409822574659,Toward not surviving,0.1166409822574659
+categorical__Embarked_S,-0.2912048941654882,Toward not surviving,0.2912048941654882
+categorical__Title_Rare,-0.37370973529691326,Toward not surviving,0.37370973529691326
+numeric__Age,-0.39726465458920246,Toward not surviving,0.39726465458920246
+categorical__Pclass_3,-0.4618991636079171,Toward not surviving,0.4618991636079171
+numeric__FamilySize,-0.7413142464911451,Toward not surviving,0.7413142464911451
+categorical__Sex_male,-0.752377816561964,Toward not surviving,0.752377816561964
+categorical__Title_Mr,-1.2432469403193205,Toward not surviving,1.2432469403193205
