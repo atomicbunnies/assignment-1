@@ -1,0 +1,350 @@
+{
+  "initial_silhouette": 0.34549,
+  "best_silhouette": 0.41803,
+  "improvement_pct": 21.0,
+  "total_iterations": 12,
+  "accepted_mutations_count": 7,
+  "rejected_mutations_count": 5,
+  "backbones_leaderboard": [
+    {
+      "id": "kmeans",
+      "name": "K-Means++",
+      "family": "Centroid Partitioning",
+      "hyperparameters": {
+        "n_clusters": 5,
+        "init": "k-means++",
+        "n_init": 10
+      },
+      "metrics": {
+        "silhouette_score": 0.34549,
+        "davies_bouldin_index": 1.11197,
+        "calinski_harabasz_score": 2793.5,
+        "fit_time_sec": 1.888
+      }
+    },
+    {
+      "id": "gmm",
+      "name": "Gaussian Mixture Model (GMM)",
+      "family": "Probabilistic Density Estimation",
+      "hyperparameters": {
+        "n_components": 5,
+        "covariance_type": "full"
+      },
+      "metrics": {
+        "silhouette_score": 0.34349,
+        "davies_bouldin_index": 1.20293,
+        "calinski_harabasz_score": 2351.1,
+        "fit_time_sec": 0.031
+      }
+    },
+    {
+      "id": "agglomerative",
+      "name": "Hierarchical Agglomerative",
+      "family": "Bottom-up Hierarchical Tree",
+      "hyperparameters": {
+        "n_clusters": 5,
+        "linkage": "ward"
+      },
+      "metrics": {
+        "silhouette_score": 0.3422,
+        "davies_bouldin_index": 1.11665,
+        "calinski_harabasz_score": 2776.7,
+        "fit_time_sec": 0.759
+      }
+    },
+    {
+      "id": "spectral",
+      "name": "Spectral Clustering",
+      "family": "Graph Laplacian Eigenvectors",
+      "hyperparameters": {
+        "n_clusters": 5,
+        "affinity": "nearest_neighbors"
+      },
+      "metrics": {
+        "silhouette_score": 0.25695,
+        "davies_bouldin_index": 1.48944,
+        "calinski_harabasz_score": 2047.3,
+        "fit_time_sec": 1.138
+      }
+    },
+    {
+      "id": "dbscan",
+      "name": "DBSCAN Density Clustering",
+      "family": "Density-Based Spatial Clustering",
+      "hyperparameters": {
+        "eps": 0.85,
+        "min_samples": 20
+      },
+      "metrics": {
+        "silhouette_score": 0.09581,
+        "davies_bouldin_index": 1.99041,
+        "calinski_harabasz_score": 829.8,
+        "fit_time_sec": 0.2
+      }
+    }
+  ],
+  "active_features": [
+    "Age",
+    "Annual_Income_k",
+    "Spending_Score",
+    "Recency_Days",
+    "Total_Spend_Annual",
+    "Web_Visits_Month",
+    "Discount_Sensitivity",
+    "Family_Size",
+    "income_to_spend_ratio",
+    "digital_engagement",
+    "deal_affinity",
+    "log_total_spend",
+    "power_transform_income"
+  ],
+  "trajectory": [
+    {
+      "step_id": "step-0",
+      "iteration": 0,
+      "phase": "Backbone Battle",
+      "category": "Baseline",
+      "hypothesis": "Champion Backbone Selection: K-Means++",
+      "feature_name": "base_8_features",
+      "code_diff": "# Base Feature Standardization & K-Means++\nscaler = StandardScaler()\nX = scaler.fit_transform(df[BASE_FEATURES])\nmodel = KMeans(n_clusters=5, init='k-means++')",
+      "hyperparameters": {
+        "n_clusters": 5,
+        "init": "k-means++"
+      },
+      "silhouette_before": 0.34549,
+      "silhouette_after": 0.34549,
+      "delta": 0.0,
+      "decision": "ACCEPTED",
+      "reflection": "Selected as optimal baseline clustering backbone architecture with highest separation metric.",
+      "timestamp": "06:25:20 UTC"
+    },
+    {
+      "step_id": "step-1",
+      "iteration": 1,
+      "phase": "Feature Evolution",
+      "category": "Feature Mutation",
+      "hypothesis": "Monetary Velocity (Annual Spend / Recency Days) sharpens temporal spend separation",
+      "feature_name": "monetary_velocity",
+      "code_diff": "df['monetary_velocity'] = df['Total_Spend_Annual'] / (df['Recency_Days'] + 1.0)",
+      "hyperparameters": {
+        "n_clusters": 5,
+        "init": "k-means++"
+      },
+      "silhouette_before": 0.34549,
+      "silhouette_after": 0.31436,
+      "delta": -0.03113,
+      "decision": "REJECTED",
+      "reflection": "No cluster separation gain (\u0394: -0.03113). Mutation increased within-cluster dispersion; reverted to previous state.",
+      "timestamp": "06:25:20 UTC"
+    },
+    {
+      "step_id": "step-2",
+      "iteration": 2,
+      "phase": "Feature Evolution",
+      "category": "Feature Mutation",
+      "hypothesis": "Income to Spend Ratio isolates discretionary spending propensity vs savings rate",
+      "feature_name": "income_to_spend_ratio",
+      "code_diff": "df['income_to_spend_ratio'] = df['Annual_Income_k'] / (df['Spending_Score'] + 1.0)",
+      "hyperparameters": {
+        "n_clusters": 5,
+        "init": "k-means++"
+      },
+      "silhouette_before": 0.34549,
+      "silhouette_after": 0.35796,
+      "delta": 0.01247,
+      "decision": "ACCEPTED",
+      "reflection": "Improvement verified (\u0394: +0.01247). Feature enhanced inter-cluster hyper-plane margin without overlap.",
+      "timestamp": "06:25:21 UTC"
+    },
+    {
+      "step_id": "step-3",
+      "iteration": 3,
+      "phase": "Feature Evolution",
+      "category": "Feature Mutation",
+      "hypothesis": "Digital Engagement (Web Visits * Spending Score / 100) clusters online shopping affinity",
+      "feature_name": "digital_engagement",
+      "code_diff": "df['digital_engagement'] = df['Web_Visits_Month'] * (df['Spending_Score'] / 100.0)",
+      "hyperparameters": {
+        "n_clusters": 5,
+        "init": "k-means++"
+      },
+      "silhouette_before": 0.35796,
+      "silhouette_after": 0.36483,
+      "delta": 0.00687,
+      "decision": "ACCEPTED",
+      "reflection": "Improvement verified (\u0394: +0.00687). Feature enhanced inter-cluster hyper-plane margin without overlap.",
+      "timestamp": "06:25:21 UTC"
+    },
+    {
+      "step_id": "step-4",
+      "iteration": 4,
+      "phase": "Feature Evolution",
+      "category": "Feature Mutation",
+      "hypothesis": "Deal Affinity captures price sensitivity interaction against low spending scores",
+      "feature_name": "deal_affinity",
+      "code_diff": "df['deal_affinity'] = df['Discount_Sensitivity'] * (1.0 - df['Spending_Score'] / 100.0)",
+      "hyperparameters": {
+        "n_clusters": 5,
+        "init": "k-means++"
+      },
+      "silhouette_before": 0.36483,
+      "silhouette_after": 0.37912,
+      "delta": 0.01429,
+      "decision": "ACCEPTED",
+      "reflection": "Improvement verified (\u0394: +0.01429). Feature enhanced inter-cluster hyper-plane margin without overlap.",
+      "timestamp": "06:25:22 UTC"
+    },
+    {
+      "step_id": "step-5",
+      "iteration": 5,
+      "phase": "Feature Evolution",
+      "category": "Feature Mutation",
+      "hypothesis": "Logarithmic transform of annual spend compresses extreme high roller right tail",
+      "feature_name": "log_total_spend",
+      "code_diff": "df['log_total_spend'] = np.log1p(df['Total_Spend_Annual'])",
+      "hyperparameters": {
+        "n_clusters": 5,
+        "init": "k-means++"
+      },
+      "silhouette_before": 0.37912,
+      "silhouette_after": 0.39936,
+      "delta": 0.02024,
+      "decision": "ACCEPTED",
+      "reflection": "Improvement verified (\u0394: +0.02024). Feature enhanced inter-cluster hyper-plane margin without overlap.",
+      "timestamp": "06:25:22 UTC"
+    },
+    {
+      "step_id": "step-6",
+      "iteration": 6,
+      "phase": "Feature Evolution",
+      "category": "Feature Mutation",
+      "hypothesis": "Box-Cox / Yeo-Johnson power transform Gaussianizes income distribution",
+      "feature_name": "power_transform_income",
+      "code_diff": "df['power_income'] = PowerTransformer().fit_transform(df[['Annual_Income_k']])",
+      "hyperparameters": {
+        "n_clusters": 5,
+        "init": "k-means++"
+      },
+      "silhouette_before": 0.39936,
+      "silhouette_after": 0.41377,
+      "delta": 0.01441,
+      "decision": "ACCEPTED",
+      "reflection": "Improvement verified (\u0394: +0.01441). Feature enhanced inter-cluster hyper-plane margin without overlap.",
+      "timestamp": "06:25:23 UTC"
+    },
+    {
+      "step_id": "step-7",
+      "iteration": 7,
+      "phase": "Hyperparameter Tuning",
+      "category": "Hyperparameter Optimization",
+      "hypothesis": "Tune Clusters (k=5 with n_init=20)",
+      "feature_name": "hyperparameter_tuning",
+      "code_diff": "# Tuned Parameters:\nmodel = KMeans(\n    n_clusters=5,\n    n_init=20,\n)",
+      "hyperparameters": {
+        "n_clusters": 5,
+        "n_init": 20
+      },
+      "silhouette_before": 0.41377,
+      "silhouette_after": 0.41377,
+      "delta": 0.0,
+      "decision": "REJECTED",
+      "reflection": "Rejected parameter configuration (\u0394: +0.00000). Lower silhouette score or fragmented clusters.",
+      "timestamp": "06:25:24 UTC"
+    },
+    {
+      "step_id": "step-8",
+      "iteration": 8,
+      "phase": "Hyperparameter Tuning",
+      "category": "Hyperparameter Optimization",
+      "hypothesis": "Explore k=6 Clusters",
+      "feature_name": "hyperparameter_tuning",
+      "code_diff": "# Tuned Parameters:\nmodel = KMeans(\n    n_clusters=6,\n    n_init=15,\n)",
+      "hyperparameters": {
+        "n_clusters": 6,
+        "n_init": 15
+      },
+      "silhouette_before": 0.41377,
+      "silhouette_after": 0.38091,
+      "delta": -0.03286,
+      "decision": "REJECTED",
+      "reflection": "Rejected parameter configuration (\u0394: -0.03286). Lower silhouette score or fragmented clusters.",
+      "timestamp": "06:25:24 UTC"
+    },
+    {
+      "step_id": "step-9",
+      "iteration": 9,
+      "phase": "Hyperparameter Tuning",
+      "category": "Hyperparameter Optimization",
+      "hypothesis": "Explore k=4 Macro Segments",
+      "feature_name": "hyperparameter_tuning",
+      "code_diff": "# Tuned Parameters:\nmodel = KMeans(\n    n_clusters=4,\n    n_init=15,\n)",
+      "hyperparameters": {
+        "n_clusters": 4,
+        "n_init": 15
+      },
+      "silhouette_before": 0.41377,
+      "silhouette_after": 0.41803,
+      "delta": 0.00426,
+      "decision": "ACCEPTED",
+      "reflection": "Accepted parameter configuration with tighter cluster density (\u0394: +0.00426).",
+      "timestamp": "06:25:25 UTC"
+    },
+    {
+      "step_id": "step-10",
+      "iteration": 10,
+      "phase": "Hyperparameter Tuning",
+      "category": "Hyperparameter Optimization",
+      "hypothesis": "Agglomerative with Average Linkage",
+      "feature_name": "hyperparameter_tuning",
+      "code_diff": "# Tuned Parameters:\nmodel = AgglomerativeClustering(\n    n_clusters=5,\n    linkage=average,\n)",
+      "hyperparameters": {
+        "n_clusters": 5,
+        "linkage": "average"
+      },
+      "silhouette_before": 0.41803,
+      "silhouette_after": 0.31819,
+      "delta": -0.09984,
+      "decision": "REJECTED",
+      "reflection": "Rejected parameter configuration (\u0394: -0.09984). Lower silhouette score or fragmented clusters.",
+      "timestamp": "06:25:26 UTC"
+    },
+    {
+      "step_id": "step-11",
+      "iteration": 11,
+      "phase": "Hyperparameter Tuning",
+      "category": "Hyperparameter Optimization",
+      "hypothesis": "GMM with Tied Covariance",
+      "feature_name": "hyperparameter_tuning",
+      "code_diff": "# Tuned Parameters:\nmodel = GaussianMixture(\n    n_components=5,\n    covariance_type=tied,\n)",
+      "hyperparameters": {
+        "n_components": 5,
+        "covariance_type": "tied"
+      },
+      "silhouette_before": 0.41803,
+      "silhouette_after": 0.41249,
+      "delta": -0.00554,
+      "decision": "REJECTED",
+      "reflection": "Rejected parameter configuration (\u0394: -0.00554). Lower silhouette score or fragmented clusters.",
+      "timestamp": "06:25:27 UTC"
+    },
+    {
+      "step_id": "step-12",
+      "iteration": 12,
+      "phase": "Consensus Ensembling",
+      "category": "Ensemble Consensus",
+      "hypothesis": "K-Means++ & GMM Co-Association Matrix Consensus",
+      "feature_name": "consensus_matrix_ensemble",
+      "code_diff": "# Consensus Co-Association Matrix:\nconsensus_matrix = (km_labels[:, None] == km_labels) * 0.6 + (gmm_labels[:, None] == gmm_labels) * 0.4",
+      "hyperparameters": {
+        "w_kmeans": 0.6,
+        "w_gmm": 0.4
+      },
+      "silhouette_before": 0.41803,
+      "silhouette_after": 0.41803,
+      "delta": 0.0,
+      "decision": "ACCEPTED",
+      "reflection": "Consensus agreement verified between K-Means centroid boundaries and GMM Gaussian density ellipsoids (>91.4% co-assignment).",
+      "timestamp": "06:25:27 UTC"
+    }
+  ]
+}

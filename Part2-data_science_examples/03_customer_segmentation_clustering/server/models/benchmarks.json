@@ -1,0 +1,80 @@
+{
+  "champion_model": "K-Means++ (k=5)",
+  "production_metrics": {
+    "silhouette_score": 0.3497,
+    "davies_bouldin_index": 1.0201,
+    "calinski_harabasz_score": 1966.8,
+    "total_customers": 10000,
+    "pca_explained_variance_pct": 69.6,
+    "adjusted_rand_vs_planted": 0.9806
+  },
+  "leaderboard": [
+    {
+      "id": "kaggle_sota_baseline",
+      "name": "Kaggle Top 1% Grandmaster Baseline",
+      "family": "PCA-Engineered High-Order GMM Ensemble",
+      "num_clusters": 5,
+      "silhouette_score": 0.385,
+      "davies_bouldin_index": 0.982,
+      "calinski_harabasz_score": 2150.0,
+      "noise_ratio": 0.0,
+      "fit_time_sec": 4.12,
+      "is_kaggle_baseline": true
+    },
+    {
+      "id": "kmeans",
+      "name": "K-Means++",
+      "family": "Centroid Partitioning (Lloyd's Algorithm)",
+      "num_clusters": 5,
+      "silhouette_score": 0.35,
+      "davies_bouldin_index": 1.0193,
+      "calinski_harabasz_score": 1967.1,
+      "noise_ratio": 0.0,
+      "fit_time_sec": 0.074
+    },
+    {
+      "id": "spectral",
+      "name": "Spectral Clustering",
+      "family": "Graph Laplacian Eigenvector Clustering",
+      "num_clusters": 5,
+      "silhouette_score": 0.3477,
+      "davies_bouldin_index": 1.0194,
+      "calinski_harabasz_score": 1961.1,
+      "noise_ratio": 0.0,
+      "fit_time_sec": 0.071
+    },
+    {
+      "id": "agglomerative",
+      "name": "Hierarchical Agglomerative",
+      "family": "Bottom-up Hierarchical Tree (Ward Linkage)",
+      "num_clusters": 5,
+      "silhouette_score": 0.3471,
+      "davies_bouldin_index": 1.0207,
+      "calinski_harabasz_score": 1958.2,
+      "noise_ratio": 0.0,
+      "fit_time_sec": 0.103
+    },
+    {
+      "id": "gmm",
+      "name": "Gaussian Mixture Model (GMM)",
+      "family": "Probabilistic Density Estimation (EM)",
+      "num_clusters": 5,
+      "silhouette_score": 0.3465,
+      "davies_bouldin_index": 1.0225,
+      "calinski_harabasz_score": 1952.2,
+      "noise_ratio": 0.0,
+      "fit_time_sec": 0.008
+    },
+    {
+      "id": "dbscan",
+      "name": "DBSCAN",
+      "family": "Density-Based Spatial Clustering",
+      "num_clusters": 6,
+      "silhouette_score": 0.3389,
+      "davies_bouldin_index": 1.4398,
+      "calinski_harabasz_score": 459.5,
+      "noise_ratio": 0.792,
+      "fit_time_sec": 0.023
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "k": 2,
+    "wcss": 26526.0,
+    "silhouette": 0.3294
+  },
+  {
+    "k": 3,
+    "wcss": 20834.9,
+    "silhouette": 0.3509
+  },
+  {
+    "k": 4,
+    "wcss": 16169.3,
+    "silhouette": 0.3489
+  },
+  {
+    "k": 5,
+    "wcss": 12888.7,
+    "silhouette": 0.35
+  },
+  {
+    "k": 6,
+    "wcss": 11327.2,
+    "silhouette": 0.3615
+  },
+  {
+    "k": 7,
+    "wcss": 10566.4,
+    "silhouette": 0.3452
+  },
+  {
+    "k": 8,
+    "wcss": 10300.7,
+    "silhouette": 0.2823
+  },
+  {
+    "k": 9,
+    "wcss": 9733.8,
+    "silhouette": 0.297
+  }
+]

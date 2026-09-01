@@ -1,0 +1,11 @@
+{
+  "figures": [
+    "/Users/jb/Downloads/data_science_examples-main/03_customer_segmentation_clustering/ml/figures/01_income_vs_spend_clusters.png",
+    "/Users/jb/Downloads/data_science_examples-main/03_customer_segmentation_clustering/ml/figures/02_pca_tsne_manifolds.png",
+    "/Users/jb/Downloads/data_science_examples-main/03_customer_segmentation_clustering/ml/figures/03_elbow_silhouette.png",
+    "/Users/jb/Downloads/data_science_examples-main/03_customer_segmentation_clustering/ml/figures/04_backbone_silhouette.png",
+    "/Users/jb/Downloads/data_science_examples-main/03_customer_segmentation_clustering/ml/figures/05_persona_profile_bars.png",
+    "/Users/jb/Downloads/data_science_examples-main/03_customer_segmentation_clustering/ml/figures/06_pca_loadings.png",
+    "/Users/jb/Downloads/data_science_examples-main/03_customer_segmentation_clustering/ml/figures/07_feature_correlation.png"
+  ]
+}

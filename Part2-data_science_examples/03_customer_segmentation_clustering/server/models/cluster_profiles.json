@@ -1,0 +1,107 @@
+{
+  "0": {
+    "cluster_id": 0,
+    "persona_name": "VIP Champions",
+    "tagline": "Affluent High-Spenders",
+    "color": "#10b981",
+    "badge": "High Income & High Spend",
+    "description": "High-net-worth customers with frequent purchases and high basket sizes. Highly responsive to premium tiers, luxury perks, and VIP concierges.",
+    "marketing_strategy": "Exclusive early access, premium loyalty rewards, concierge support, and luxury bundles.",
+    "customer_count": 1993,
+    "percentage": 19.9,
+    "stats": {
+      "avg_age": 37.9,
+      "avg_income_k": 110.3,
+      "avg_spending_score": 83.2,
+      "avg_recency_days": 13.1,
+      "avg_total_spend": 12039.77,
+      "avg_web_visits": 8.1,
+      "avg_discount_sens": 0.19,
+      "avg_family_size": 2.1
+    }
+  },
+  "1": {
+    "cluster_id": 1,
+    "persona_name": "Prudent Affluents",
+    "tagline": "High-Income Careful Savers",
+    "color": "#38bdf8",
+    "badge": "High Income & Low Spend",
+    "description": "High income bracket but conservative spending habits. Value quality, reliability, and long-term durability over impulse purchases.",
+    "marketing_strategy": "Value-driven luxury campaigns, investment-grade product assurances, and targeted quarterly promotions.",
+    "customer_count": 1961,
+    "percentage": 19.6,
+    "stats": {
+      "avg_age": 51.5,
+      "avg_income_k": 105.3,
+      "avg_spending_score": 23.1,
+      "avg_recency_days": 76.1,
+      "avg_total_spend": 3105.91,
+      "avg_web_visits": 4.0,
+      "avg_discount_sens": 0.37,
+      "avg_family_size": 2.2
+    }
+  },
+  "2": {
+    "cluster_id": 2,
+    "persona_name": "Young Trendsetters",
+    "tagline": "Digital-First Impulsive Shoppers",
+    "color": "#a855f7",
+    "badge": "Moderate Income & High Spend",
+    "description": "Digitally active younger cohort with high web visits, social discovery, and strong impulse buying in fashion and tech.",
+    "marketing_strategy": "Social commerce campaigns, limited-time flash drops, influencer collaborations, and flexible BNPL payment options.",
+    "customer_count": 1994,
+    "percentage": 19.9,
+    "stats": {
+      "avg_age": 25.7,
+      "avg_income_k": 38.3,
+      "avg_spending_score": 81.6,
+      "avg_recency_days": 17.4,
+      "avg_total_spend": 4187.01,
+      "avg_web_visits": 13.9,
+      "avg_discount_sens": 0.5,
+      "avg_family_size": 1.5
+    }
+  },
+  "3": {
+    "cluster_id": 3,
+    "persona_name": "Bargain Hunters",
+    "tagline": "Budget-Conscious Deal Seekers",
+    "color": "#f59e0b",
+    "badge": "Low Income & Low Spend",
+    "description": "Highly price-sensitive customers with high discount sensitivity. Actively hunt clearance sales, bulk coupons, and value packs.",
+    "marketing_strategy": "Clearance promotions, volume discounts, bulk cashback vouchers, and free shipping thresholds.",
+    "customer_count": 1993,
+    "percentage": 19.9,
+    "stats": {
+      "avg_age": 45.4,
+      "avg_income_k": 32.0,
+      "avg_spending_score": 19.5,
+      "avg_recency_days": 89.3,
+      "avg_total_spend": 688.81,
+      "avg_web_visits": 4.9,
+      "avg_discount_sens": 0.81,
+      "avg_family_size": 2.7
+    }
+  },
+  "4": {
+    "cluster_id": 4,
+    "persona_name": "Mainstream Loyalists",
+    "tagline": "Steady Core Customers",
+    "color": "#ec4899",
+    "badge": "Average Income & Average Spend",
+    "description": "The reliable core customer base with consistent seasonal shopping cadences, average spending scores, and steady engagement.",
+    "marketing_strategy": "Points-based loyalty schemes, anniversary gifts, personalized replenishment reminders, and referral bonuses.",
+    "customer_count": 2059,
+    "percentage": 20.6,
+    "stats": {
+      "avg_age": 39.6,
+      "avg_income_k": 68.4,
+      "avg_spending_score": 49.4,
+      "avg_recency_days": 40.0,
+      "avg_total_spend": 4448.01,
+      "avg_web_visits": 7.0,
+      "avg_discount_sens": 0.5,
+      "avg_family_size": 2.8
+    }
+  }
+}
