@@ -1,0 +1,223 @@
+[
+  {
+    "id": "exploratory-data-analysis",
+    "name": "Exploratory Data Analysis (EDA)",
+    "category": "Data Prep & Feature Engineering",
+    "origin": "param087/agent-ml-skills",
+    "purpose": "Systematic data profiling, distribution checking, correlation analysis, and early target leakage detection on new datasets.",
+    "math_intuition": "Quantifies statistical moments (Mean, Median, Skewness, Kurtosis) and Pearson correlation r = Cov(X,Y) / (sigma_X * sigma_Y) to detect multi-collinearity and distribution shifts.",
+    "input_schema": "Pandas DataFrame with raw features and optional target column.",
+    "output_schema": "Summary dictionary containing missing value percentages, correlation matrix, outlier counts, and distribution histograms.",
+    "pitfalls": [
+      "Failing to check for target leakage (features created after the event occurred).",
+      "Relying solely on mean without checking skewness and heavy tails.",
+      "Computing test set statistics during exploratory phase (data snooping)."
+    ],
+    "example_dataset": "Kaggle Titanic",
+    "benchmark_link": "titanic"
+  },
+  {
+    "id": "data-cleaning",
+    "name": "Data Cleaning & Leakage-Free Imputation",
+    "category": "Data Prep & Feature Engineering",
+    "origin": "param087/agent-ml-skills",
+    "purpose": "Handles missing values, duplicate records, type anomalies, and outliers with strict train-only imputation.",
+    "math_intuition": "Fits imputer statistics theta = {median, mode} strictly on the training fold D_train, then applies the frozen transform to validation/test sets D_val without recalculating.",
+    "input_schema": "Raw uncleaned DataFrame with NaN values, string type errors, and negative values.",
+    "output_schema": "Imputed, type-cast, clean feature matrix with zero null values and outlier bounding.",
+    "pitfalls": [
+      "Imputing missing values on the full dataset before train/test splitting (classic data leakage).",
+      "Blindly dropping rows with missing values instead of understanding missingness mechanisms (MCAR vs MAR vs MNAR).",
+      "Using mean imputation on highly skewed distributions instead of median."
+    ],
+    "example_dataset": "Kaggle Titanic & Dirty Data",
+    "benchmark_link": "data-quality"
+  },
+  {
+    "id": "feature-engineering",
+    "name": "Feature Engineering & Transformations",
+    "category": "Data Prep & Feature Engineering",
+    "origin": "param087/agent-ml-skills",
+    "purpose": "Extracts domain signals, interaction terms, ratios, datetime components, and non-linear polynomial transformations.",
+    "math_intuition": "Expands linear hypothesis spaces via feature crosses (x_1 * x_2), non-linear scalers (log(1 + x), Box-Cox), and cyclical encodings (sin(2*pi*t/T), cos(2*pi*t/T)).",
+    "input_schema": "Cleaned tabular feature DataFrame.",
+    "output_schema": "Engineered feature matrix with interaction terms, normalized scales, and target-correlated features.",
+    "pitfalls": [
+      "Target encoding without out-of-fold regularization, leading to severe overfitting.",
+      "Creating combinatorial feature crosses without feature selection, exploding dimensionality.",
+      "Applying log transforms to features containing negative or zero values without offsetting."
+    ],
+    "example_dataset": "Kaggle Titanic (FamilySize, IsAlone, Title)",
+    "benchmark_link": "titanic"
+  },
+  {
+    "id": "imbalanced-data",
+    "name": "Imbalanced Data & Threshold Calibration",
+    "category": "Data Prep & Feature Engineering",
+    "origin": "param087/agent-ml-skills",
+    "purpose": "Optimizes classification pipelines for rare targets (fraud, churn, rare disease) using SMOTE, focal loss, and threshold tuning.",
+    "math_intuition": "Optimizes F_beta score F_beta = (1 + beta^2) * (Precision * Recall) / (beta^2 * Precision + Recall) and shifts decision boundary tau = argmax_t F1(t) instead of default 0.50.",
+    "input_schema": "Feature matrix with highly skewed binary target (e.g. 0.17% positive class).",
+    "output_schema": "Resampled pipeline, Precision-Recall Curve, Optimal decision threshold, and cost-matrix evaluation.",
+    "pitfalls": [
+      "Evaluating an imbalanced model using Accuracy (Accuracy Paradox: 99.8% accuracy by predicting all zeroes).",
+      "Applying SMOTE oversampling to the test set (evaluating on synthetic data).",
+      "Using default 0.50 probability cutoff instead of tuning the operational decision threshold."
+    ],
+    "example_dataset": "Kaggle Credit Card Fraud",
+    "benchmark_link": "fraud"
+  },
+  {
+    "id": "sklearn-pipelines",
+    "name": "scikit-learn Leakage-Safe Pipelines",
+    "category": "Modeling & Evaluation",
+    "origin": "param087/agent-ml-skills",
+    "purpose": "Encapsulates preprocessing, feature selection, and model estimation into an atomic, serializable DAG.",
+    "math_intuition": "Ensures that all transformer state parameters theta_k are fitted strictly inside Cross-Validation fold loops via Pipeline([('preprocessor', ColumnTransformer), ('clf', Estimator)]).",
+    "input_schema": "Raw heterogeneous DataFrame with numeric and categorical columns.",
+    "output_schema": "Fitted Pipeline object with atomic .fit(), .transform(), and .predict() interface.",
+    "pitfalls": [
+      "Fitting transformers outside the pipeline before K-Fold cross validation.",
+      "Mixing up column transformer selectors leading to silent feature misalignment in production.",
+      "Forgetting to wrap custom functions in FunctionTransformer."
+    ],
+    "example_dataset": "Kaggle Titanic Pipeline",
+    "benchmark_link": "titanic"
+  },
+  {
+    "id": "hyperparameter-tuning",
+    "name": "Hyperparameter Optimization & Tuning",
+    "category": "Modeling & Evaluation",
+    "origin": "param087/agent-ml-skills",
+    "purpose": "Explores estimator configuration spaces via Bayesian Search (Optuna), Random Search, and Halving Grid Search.",
+    "math_intuition": "Models objective function f(theta) = CV_Score(theta) using Tree-structured Parzen Estimators (TPE) to balance exploration and exploitation.",
+    "input_schema": "Pipeline estimator, hyperparameter search space bounds, and CV splitting strategy.",
+    "output_schema": "Best hyperparameter dictionary, optimization history trajectory, and feature importance importances.",
+    "pitfalls": [
+      "Tuning hyperparameters on the test set instead of nested cross-validation (optimism bias).",
+      "Exhaustive grid search on non-critical parameters while ignoring high-leverage ones (learning rate, depth).",
+      "Optimizing wrong loss metric (e.g. optimizing MSE when business metric is MAPE or MAE)."
+    ],
+    "example_dataset": "Kaggle House Prices",
+    "benchmark_link": "house-prices"
+  },
+  {
+    "id": "model-evaluation",
+    "name": "Model Evaluation & Diagnostic Curves",
+    "category": "Modeling & Evaluation",
+    "origin": "param087/agent-ml-skills",
+    "purpose": "Evaluates predictive performance across Confusion Matrices, ROC-AUC, Precision-Recall, and Calibration curves.",
+    "math_intuition": "Computes True Positive Rate TPR = TP / (TP + FN) vs False Positive Rate FPR = FP / (FP + TN) across continuous thresholds tau in [0, 1].",
+    "input_schema": "Ground truth labels y_true and predicted probabilities y_prob.",
+    "output_schema": "ROC Curve coordinates, PR Curve coordinates, Brier Score, and Confusion Matrix heatmap.",
+    "pitfalls": [
+      "Relying solely on ROC-AUC for extreme imbalanced datasets where Precision-Recall is required.",
+      "Ignoring model probability calibration when probabilities drive downstream pricing or risk rules.",
+      "Evaluating on non-stratified random splits when classes are imbalanced."
+    ],
+    "example_dataset": "Kaggle Titanic & Credit Fraud",
+    "benchmark_link": "fraud"
+  },
+  {
+    "id": "programmatic-eda",
+    "name": "Programmatic EDA & Automated Profiling",
+    "category": "Data Quality & Validation",
+    "origin": "nimrodfisher/data-analytics-skills",
+    "purpose": "Automated dataset sanity checks, cardinality analysis, missingness rate mapping, and automated type inference.",
+    "math_intuition": "Evaluates column-level entropy H(X) = -sum p(x) log p(x), uniqueness ratios |unique(X)| / |X|, and null density.",
+    "input_schema": "Raw database table or CSV DataFrame.",
+    "output_schema": "Automated profiling scorecard with column health ratings, warning flags, and distribution summaries.",
+    "pitfalls": [
+      "Failing to automate profiling in production pipelines, missing silent schema drift.",
+      "Ignoring high-cardinality ID columns mistakenly treated as numerical features.",
+      "Not detecting constant or near-zero variance features before modeling."
+    ],
+    "example_dataset": "Kaggle Dirty Dataset",
+    "benchmark_link": "data-quality"
+  },
+  {
+    "id": "data-quality-audit",
+    "name": "Data Quality Audit & Schema Validation",
+    "category": "Data Quality & Validation",
+    "origin": "nimrodfisher/data-analytics-skills",
+    "purpose": "Comprehensive quality assessment validating datasets against business integrity rules and schema constraints.",
+    "math_intuition": "Calculates data completeness score = 1 - (null_cells / total_cells) and rule conformance rate across business predicates.",
+    "input_schema": "Production transaction records and schema specification JSON.",
+    "output_schema": "Audit report with Data Quality Score (0-100), duplicate counts, out-of-range violations, and actionable remediation steps.",
+    "pitfalls": [
+      "Treating data quality as a one-off task instead of continuous automated assertion testing.",
+      "Not catching invalid semantic formats (e.g. valid string but invalid email/timestamp).",
+      "Ignoring silent duplicate rows created by faulty database joins."
+    ],
+    "example_dataset": "Kaggle Dirty Dataset",
+    "benchmark_link": "data-quality"
+  },
+  {
+    "id": "cohort-analysis",
+    "name": "User Retention Cohort Analysis",
+    "category": "Business & Statistical Analytics",
+    "origin": "nimrodfisher/data-analytics-skills",
+    "purpose": "Tracks customer retention, engagement decay, and lifetime value across monthly acquisition cohorts.",
+    "math_intuition": "Computes retention matrix R_{i, j} = |Users_{i} active in Period_{j}| / |Users_{i} acquired in Period_{0}| to diagnose product-market fit.",
+    "input_schema": "Transaction or activity log with UserID, ActivityDate, and FirstSignupDate.",
+    "output_schema": "Cohort heatmap matrix with retention percentages over time (Period 0 to Period N).",
+    "pitfalls": [
+      "Defining activity too loosely (e.g. email open vs actual meaningful product usage).",
+      "Comparing mature cohorts with newly formed cohorts without adjusting for elapsed time.",
+      "Ignoring cohort mix shifts (e.g. paid marketing influx degrading average cohort retention)."
+    ],
+    "example_dataset": "Kaggle E-Commerce Analytics",
+    "benchmark_link": "ecommerce"
+  },
+  {
+    "id": "funnel-analysis",
+    "name": "Conversion Funnel & Drop-off Analysis",
+    "category": "Business & Statistical Analytics",
+    "origin": "nimrodfisher/data-analytics-skills",
+    "purpose": "Maps multi-step user journey conversion rates and pinpoints the highest-friction drop-off stages.",
+    "math_intuition": "Calculates step-to-step conversion C_{k} = Users_{k} / Users_{k-1} and step drop-off rate D_k = 1 - C_k.",
+    "input_schema": "Event telemetry stream with UserID, EventName, and Timestamp.",
+    "output_schema": "Funnel stage counts, step-over-step conversion percentages, and drop-off waterfall chart.",
+    "pitfalls": [
+      "Not enforcing strict chronological order between funnel step events.",
+      "Setting conversion window too narrow, prematurely marking slow converters as dropped off.",
+      "Aggregating mobile and desktop users together when step friction differs dramatically."
+    ],
+    "example_dataset": "Kaggle E-Commerce Funnel",
+    "benchmark_link": "ecommerce"
+  },
+  {
+    "id": "ab-test-analysis",
+    "name": "A/B Testing & Statistical Significance",
+    "category": "Business & Statistical Analytics",
+    "origin": "nimrodfisher/data-analytics-skills",
+    "purpose": "Evaluates experiment variants with rigorous two-proportion z-tests, p-values, and statistical power calculations.",
+    "math_intuition": "Tests null hypothesis H_0: p_t = p_c via two-sample Z-score Z = (p_t - p_c) / sqrt(p_pool * (1 - p_pool) * (1/n_t + 1/n_c)).",
+    "input_schema": "Sample sizes n_control, n_treatment and conversion counts x_control, x_treatment.",
+    "output_schema": "Z-score, p-value, 95% Confidence Interval for lift, Statistical Power (1 - beta), and Rollout Recommendation.",
+    "pitfalls": [
+      "Peeking at p-values daily without alpha-spending corrections (p-hacking / early stopping).",
+      "Running tests with insufficient sample size (underpowered experiments producing false negatives).",
+      "Ignoring Simpson's Paradox caused by uneven user segment distribution."
+    ],
+    "example_dataset": "Kaggle E-Commerce A/B Experiment",
+    "benchmark_link": "ecommerce"
+  },
+  {
+    "id": "time-series-analysis",
+    "name": "Time-Series Trend & Seasonality Decomposition",
+    "category": "Business & Statistical Analytics",
+    "origin": "nimrodfisher/data-analytics-skills",
+    "purpose": "Decomposes temporal signals into underlying secular Trend, periodic Seasonality, and residual Noise components.",
+    "math_intuition": "Additive decomposition Y_t = Trend_t + Seasonality_t + Residual_t using centered moving averages.",
+    "input_schema": "Equi-spaced datetime index with numeric measurement values.",
+    "output_schema": "Decomposed time series components, autocorrelation function (ACF), and trend forecast.",
+    "pitfalls": [
+      "Using standard random K-Fold cross validation on temporal data (future-leakage). Must use TimeSeriesSplit.",
+      "Ignoring non-stationarity without applying differencing or detrending.",
+      "Failing to account for holiday calendar shifts in seasonal components."
+    ],
+    "example_dataset": "Kaggle E-Commerce Revenue Series",
+    "benchmark_link": "ecommerce"
+  }
+]

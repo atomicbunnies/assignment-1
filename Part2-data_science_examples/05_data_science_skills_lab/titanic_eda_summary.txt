@@ -1,0 +1,73 @@
+Titanic EDA summary (exploratory-data-analysis skill)
+Source: core.datasets.get_titanic_dataset(n_samples=891, random_state=42)
+
+1. Shape & types
+  rows=891, cols=11
+  memory=0.171 MB
+  dtypes:
+PassengerId      int64
+Survived         int64
+Pclass           int64
+Sex             object
+Age            float64
+SibSp            int64
+Parch            int64
+FamilySize       int64
+IsAlone          int64
+Fare           float64
+Embarked        object
+
+2. Missingness
+  Age: 21.0%
+
+3. Target analysis
+Survived
+0    0.340067
+1    0.659933
+  Note: moderate class imbalance — accuracy alone is insufficient; prefer ROC-AUC / F1.
+
+4. Numeric summary
+             count        mean         std  min      25%     50%      75%     max
+PassengerId  891.0  446.000000  257.353842  1.0  223.500  446.00  668.500  891.00
+Survived     891.0    0.659933    0.473998  0.0    0.000    1.00    1.000    1.00
+Pclass       891.0    2.287318    0.848294  1.0    1.000    3.00    3.000    3.00
+Age          704.0   30.107670   13.446502  1.0   21.375   29.65   38.725   73.80
+SibSp        891.0    0.455668    0.821754  0.0    0.000    0.00    1.000    4.00
+Parch        891.0    0.337823    0.694534  0.0    0.000    0.00    0.000    3.00
+FamilySize   891.0    1.793490    1.050416  1.0    1.000    1.00    2.000    7.00
+IsAlone      891.0    0.519641    0.499895  0.0    0.000    1.00    1.000    1.00
+Fare         891.0   36.990673   49.264457  7.0   11.050   18.22   37.890  379.72
+
+5. Correlations with Survived
+  Survived: +1.000
+  Fare: +0.162
+  IsAlone: +0.021
+  Age: +0.006
+  SibSp: -0.011
+  PassengerId: -0.041
+  FamilySize: -0.049
+  Parch: -0.060
+  Pclass: -0.187
+
+6. Leakage scan (|corr| > 0.95 with target, IDs excluded)
+  suspects: none
+  ID columns excluded from modeling candidates: ['PassengerId']
+
+7. Cardinality
+  Sex: 2
+  Embarked: 3
+  Pclass: 3
+  SibSp: 5
+  Parch: 4
+
+Candidate features (IDs excluded): Pclass, Sex, Age, SibSp, Parch, FamilySize, IsAlone, Fare, Embarked
+Downstream: data-cleaning (Age missingness), then feature-engineering / model-evaluation.
+
+Saved figures:
+  titanic_missingness.png
+  titanic_target_balance.png
+  titanic_univariate.png
+  titanic_bivariate.png
+  titanic_correlation.png
+  titanic_age_fare_scatter.png
+  titanic_outliers.png
