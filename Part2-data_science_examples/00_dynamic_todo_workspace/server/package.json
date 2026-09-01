@@ -1,0 +1,17 @@
+{
+  "name": "fullstack-todo-server",
+  "version": "1.0.0",
+  "description": "Backend API for fullstack dynamic todo app",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "sqlite3": "^5.1.7",
+    "uuid": "^11.0.5"
+  }
+}
