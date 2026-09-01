@@ -150,17 +150,19 @@ Titanic survival was strongly associated with sex and passenger class, while far
 ## Repository structure
 
 ```text
-titanic-assignment-1/
+Assignment-1/
 ├── README.md
-├── titanic_analysis.ipynb
-├── requirements.txt
-├── data/
-│   ├── train.csv
-│   ├── test.csv
-│   └── gender_submission.csv
-└── titanic_notebook_outputs/
-    ├── charts/
-    └── tables/
+└── Part1-Titanic/
+    ├── data/
+    │   ├── train.csv
+    │   ├── test.csv
+    │   └── gender_submission.csv
+    ├── titanic_notebook_outputs/
+    │   ├── charts/
+    │   └── tables/
+    ├── Assignment-1_GPT_Script.pdf
+    ├── requirements.txt
+    └── titanic_analysis.ipynb
 ```
 
 The local `.venv` directory is intentionally excluded from the project artifacts because it can be recreated from `requirements.txt`.
