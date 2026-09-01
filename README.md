@@ -1,4 +1,4 @@
-# Assignment 1 — Titanic Survival Analysis
+# Assignment 1 — Part 1: Titanic Survival Analysis
 
 This project uses the Kaggle Titanic dataset to explore passenger survival and build a small, interpretable classification model. The work follows the **CRISP-DM** process and was developed through an AI-assisted, step-by-step data-science workflow.
 
@@ -202,3 +202,77 @@ The project uses `random_state=42` for the train-validation split, cross-validat
 The complete notebook, charts, and reproducibility instructions are available in my [GitHub repository](https://github.com/atomicbunnies/assignment-1.git).
 
 A complete video walkthrough is available on [YouTube](https://youtu.be/pWoM2SwEzJQ).
+
+---
+
+# Assignment 1 — Part 2: AI-Assisted Data Science Replication
+
+This section documents the second part of the assignment, where I replicated data-science experiments from the instructor's example repository using an AI-assisted coding workflow.
+
+Unlike Part 1, which focused on a complete Titanic survival-analysis workflow, Part 2 focused on using an AI coding assistant to explore, understand, and reproduce data-science examples in an existing project.
+
+## Objective
+
+The goal of Part 2 was to replicate data-science experiments provided by the instructor while using an AI coding assistant to help understand the existing project, execute the experiments, and work with the generated code.
+
+The instructor's reference repository is:
+
+- [Data Science Examples](https://github.com/dlmastery/data_science_examples)
+
+The assignment encouraged the use of a favorite coding assistant and allowed students to go beyond the exact examples provided.
+
+## AI Coding Assistant
+
+For Part 2, I used **Cursor** as the AI-assisted coding environment.
+
+Cursor was used to interact with the existing project, understand the provided examples, generate or modify code when needed, and assist with running the data-science experiments.
+
+The workflow was intentionally lightweight and focused on demonstrating how an AI coding assistant can be used to work with an existing data-science codebase.
+
+## Workflow
+
+The Part 2 workflow was approximately:
+
+1. Started from the instructor-provided data-science examples.
+2. Opened the project in Cursor.
+3. Used natural-language instructions to ask the AI coding assistant to help understand and reproduce the experiments.
+4. Reviewed the generated or modified code.
+5. Ran the experiments and checked the resulting outputs.
+6. Kept the resulting project artifacts in the GitHub repository.
+7. Recorded a walkthrough showing the AI-assisted workflow and the resulting project.
+
+This demonstrates a different use of AI-assisted coding from Part 1: instead of building the analysis primarily from scratch, the AI assistant was used to work with and reproduce an existing collection of data-science examples.
+
+## Prompts and AI-Assisted Development
+
+The Part 2 implementation was performed through natural-language instructions in Cursor.
+
+The prompts were intentionally concise and task-oriented. Rather than manually writing every step of the implementation, I used Cursor to help navigate the existing project, understand the experiments, and make the necessary code changes.
+
+This was also an opportunity to explore how much of a data-science workflow can be reproduced through an AI coding assistant while still reviewing and executing the resulting code locally.
+
+## Results and Artifacts
+
+The Part 2 project files and generated artifacts are included in this GitHub repository.
+
+The repository contains the files needed to review the work performed for Part 2 alongside the original Part 1 Titanic analysis.
+
+## Part 2 Walkthrough
+
+The Part 2 process and results are demonstrated in the following video:
+
+**YouTube:** [Watch the Part 2 walkthrough](https://youtu.be/MPUYjToraik)
+
+The video demonstrates the AI-assisted coding workflow in Cursor and walks through the resulting data-science project.
+
+## Part 2 Takeaway
+
+Part 2 provided an opportunity to use an AI coding assistant in a different way from the Titanic project.
+
+The main takeaway was that tools such as Cursor can be useful not only for generating new code, but also for understanding an existing codebase, reproducing experiments, modifying examples, and iterating on data-science workflows through natural-language instructions.
+
+Together, Part 1 and Part 2 demonstrate two complementary AI-assisted workflows:
+
+- **Part 1:** Building and documenting a complete data-science analysis with AI assistance.
+- **Part 2:** Using an AI coding assistant to explore and reproduce experiments from an existing data-science project.
+
