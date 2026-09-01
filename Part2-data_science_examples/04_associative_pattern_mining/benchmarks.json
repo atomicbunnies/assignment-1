@@ -1,0 +1,40 @@
+{
+  "champion_algorithm": "FP-Growth",
+  "production_metrics": {
+    "total_transactions": 10000,
+    "total_catalog_products": 33,
+    "frequent_itemsets_count": 382,
+    "active_rules_count": 1921,
+    "top_rule_lift": 6.069,
+    "mean_rule_confidence": 0.6023
+  },
+  "leaderboard": [
+    {
+      "id": "eclat",
+      "name": "ECLAT",
+      "itemsets_count": 364,
+      "rules_count": 1944,
+      "top_lift": 6.069,
+      "mean_confidence": 0.589,
+      "execution_time_sec": 0.0179
+    },
+    {
+      "id": "fp_growth",
+      "name": "FP-Growth",
+      "itemsets_count": 364,
+      "rules_count": 1944,
+      "top_lift": 6.069,
+      "mean_confidence": 0.589,
+      "execution_time_sec": 0.375
+    },
+    {
+      "id": "apriori",
+      "name": "Apriori",
+      "itemsets_count": 364,
+      "rules_count": 1944,
+      "top_lift": 6.069,
+      "mean_confidence": 0.589,
+      "execution_time_sec": 0.8223
+    }
+  ]
+}

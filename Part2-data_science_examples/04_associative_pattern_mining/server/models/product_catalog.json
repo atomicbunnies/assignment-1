@@ -1,0 +1,233 @@
+[
+  {
+    "id": "p_banana",
+    "name": "Organic Bananas",
+    "dept": "Produce",
+    "price": 1.29,
+    "base_prob": 0.38
+  },
+  {
+    "id": "p_avocado",
+    "name": "Organic Hass Avocados",
+    "dept": "Produce",
+    "price": 2.49,
+    "base_prob": 0.28
+  },
+  {
+    "id": "p_cilantro",
+    "name": "Fresh Organic Cilantro",
+    "dept": "Produce",
+    "price": 0.99,
+    "base_prob": 0.16
+  },
+  {
+    "id": "p_tomato",
+    "name": "Roma Tomatoes",
+    "dept": "Produce",
+    "price": 1.79,
+    "base_prob": 0.22
+  },
+  {
+    "id": "p_spinach",
+    "name": "Organic Baby Spinach",
+    "dept": "Produce",
+    "price": 3.49,
+    "base_prob": 0.2
+  },
+  {
+    "id": "p_lime",
+    "name": "Fresh Limes",
+    "dept": "Produce",
+    "price": 0.69,
+    "base_prob": 0.18
+  },
+  {
+    "id": "p_apple",
+    "name": "Honeycrisp Apples",
+    "dept": "Produce",
+    "price": 2.99,
+    "base_prob": 0.19
+  },
+  {
+    "id": "d_milk",
+    "name": "Organic Whole Milk",
+    "dept": "Dairy & Eggs",
+    "price": 3.89,
+    "base_prob": 0.32
+  },
+  {
+    "id": "d_eggs",
+    "name": "Grade A Large Pasture Eggs",
+    "dept": "Dairy & Eggs",
+    "price": 4.29,
+    "base_prob": 0.3
+  },
+  {
+    "id": "d_butter",
+    "name": "Salted Creamery Butter",
+    "dept": "Dairy & Eggs",
+    "price": 4.49,
+    "base_prob": 0.21
+  },
+  {
+    "id": "d_yogurt",
+    "name": "Greek Whole Milk Yogurt",
+    "dept": "Dairy & Eggs",
+    "price": 1.99,
+    "base_prob": 0.18
+  },
+  {
+    "id": "d_cheddar",
+    "name": "Aged Sharp Cheddar",
+    "dept": "Dairy & Eggs",
+    "price": 3.99,
+    "base_prob": 0.17
+  },
+  {
+    "id": "d_oatmilk",
+    "name": "Barista Oat Milk",
+    "dept": "Dairy & Eggs",
+    "price": 4.19,
+    "base_prob": 0.15
+  },
+  {
+    "id": "b_sourdough",
+    "name": "Artisanal Sourdough Bread",
+    "dept": "Bakery & Deli",
+    "price": 4.99,
+    "base_prob": 0.24
+  },
+  {
+    "id": "b_bagel",
+    "name": "Plain New York Bagels",
+    "dept": "Bakery & Deli",
+    "price": 3.49,
+    "base_prob": 0.16
+  },
+  {
+    "id": "b_turkey",
+    "name": "Oven Roasted Turkey Breast",
+    "dept": "Bakery & Deli",
+    "price": 6.49,
+    "base_prob": 0.14
+  },
+  {
+    "id": "b_buns",
+    "name": "Brioche Sandwich Buns",
+    "dept": "Bakery & Deli",
+    "price": 3.99,
+    "base_prob": 0.12
+  },
+  {
+    "id": "pan_oliveoil",
+    "name": "Extra Virgin Olive Oil",
+    "dept": "Pantry",
+    "price": 9.99,
+    "base_prob": 0.15
+  },
+  {
+    "id": "pan_pasta",
+    "name": "Penne Rigate Pasta",
+    "dept": "Pantry",
+    "price": 1.89,
+    "base_prob": 0.22
+  },
+  {
+    "id": "pan_marinara",
+    "name": "Slow-Simmered Marinara",
+    "dept": "Pantry",
+    "price": 3.99,
+    "base_prob": 0.2
+  },
+  {
+    "id": "pan_parmesan",
+    "name": "Grated Parmesan Cheese",
+    "dept": "Pantry",
+    "price": 4.29,
+    "base_prob": 0.16
+  },
+  {
+    "id": "pan_chips",
+    "name": "Organic Tortilla Chips",
+    "dept": "Pantry",
+    "price": 3.29,
+    "base_prob": 0.22
+  },
+  {
+    "id": "pan_salsa",
+    "name": "Mild Chunky Salsa",
+    "dept": "Pantry",
+    "price": 3.49,
+    "base_prob": 0.18
+  },
+  {
+    "id": "pan_pb",
+    "name": "Creamy Peanut Butter",
+    "dept": "Pantry",
+    "price": 3.79,
+    "base_prob": 0.16
+  },
+  {
+    "id": "pan_jam",
+    "name": "Organic Strawberry Jam",
+    "dept": "Pantry",
+    "price": 3.29,
+    "base_prob": 0.14
+  },
+  {
+    "id": "bev_coffee",
+    "name": "Espresso Roast Coffee Beans",
+    "dept": "Beverages",
+    "price": 12.99,
+    "base_prob": 0.19
+  },
+  {
+    "id": "bev_syrup",
+    "name": "Madagascar Vanilla Syrup",
+    "dept": "Beverages",
+    "price": 5.99,
+    "base_prob": 0.1
+  },
+  {
+    "id": "bev_sparkling",
+    "name": "Sparkling Mineral Water",
+    "dept": "Beverages",
+    "price": 2.49,
+    "base_prob": 0.22
+  },
+  {
+    "id": "bev_coldbrew",
+    "name": "Cold Brew Concentrate",
+    "dept": "Beverages",
+    "price": 5.49,
+    "base_prob": 0.14
+  },
+  {
+    "id": "bev_tea",
+    "name": "Organic Green Tea Bags",
+    "dept": "Beverages",
+    "price": 3.99,
+    "base_prob": 0.12
+  },
+  {
+    "id": "snk_choc",
+    "name": "72% Dark Chocolate Bar",
+    "dept": "Snacks",
+    "price": 3.49,
+    "base_prob": 0.18
+  },
+  {
+    "id": "snk_almonds",
+    "name": "Roasted Salted Almonds",
+    "dept": "Snacks",
+    "price": 6.99,
+    "base_prob": 0.16
+  },
+  {
+    "id": "snk_chips",
+    "name": "Sea Salt Kettle Chips",
+    "dept": "Snacks",
+    "price": 3.49,
+    "base_prob": 0.2
+  }
+]

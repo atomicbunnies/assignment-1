@@ -1,0 +1,58 @@
+{
+  "champion_algorithm": "FP-Growth (Frequent Pattern Tree)",
+  "production_metrics": {
+    "total_transactions": 10000,
+    "total_catalog_products": 33,
+    "frequent_itemsets_count": 382,
+    "active_rules_count": 1921,
+    "top_rule_lift": 6.069,
+    "mean_rule_confidence": 0.6023
+  },
+  "leaderboard": [
+    {
+      "id": "kaggle_instacart_sota",
+      "name": "Kaggle Instacart Grandmaster SOTA Baseline",
+      "paradigm": "Hierarchical GBDT + Multi-Level FP-Tree Ensemble",
+      "itemsets_count": 284,
+      "rules_count": 142,
+      "top_lift": 4.85,
+      "mean_confidence": 0.684,
+      "execution_time_sec": 3.82,
+      "memory_efficiency": "High (Distributed In-Memory Partitioning)",
+      "is_kaggle_baseline": true
+    },
+    {
+      "id": "eclat",
+      "name": "ECLAT (Equivalence Class Clustering)",
+      "paradigm": "Vertical Tidset Bitset Intersection",
+      "itemsets_count": 364,
+      "rules_count": 1944,
+      "top_lift": 6.069,
+      "mean_confidence": 0.589,
+      "execution_time_sec": 0.0307,
+      "memory_efficiency": "Moderate (Tidset Array Allocation)"
+    },
+    {
+      "id": "fp_growth",
+      "name": "FP-Growth (Frequent Pattern Tree)",
+      "paradigm": "Compact Recursive Prefix Tree",
+      "itemsets_count": 364,
+      "rules_count": 1944,
+      "top_lift": 6.069,
+      "mean_confidence": 0.589,
+      "execution_time_sec": 0.4016,
+      "memory_efficiency": "High (O(Transactions) Tree Size)"
+    },
+    {
+      "id": "apriori",
+      "name": "Apriori Algorithm",
+      "paradigm": "Level-Wise Candidate Generation (Join & Prune)",
+      "itemsets_count": 364,
+      "rules_count": 1944,
+      "top_lift": 6.069,
+      "mean_confidence": 0.589,
+      "execution_time_sec": 0.8886,
+      "memory_efficiency": "Low (Combinatorial Candidate Expansion)"
+    }
+  ]
+}

@@ -1,0 +1,506 @@
+{
+  "nodes": [
+    {
+      "id": "Organic Bananas",
+      "name": "Organic Bananas",
+      "dept": "Produce",
+      "price": 1.29,
+      "color": "#10b981",
+      "support": 0.1486,
+      "x": 451.0,
+      "y": 220.0
+    },
+    {
+      "id": "Sea Salt Kettle Chips",
+      "name": "Sea Salt Kettle Chips",
+      "dept": "Snacks",
+      "price": 3.49,
+      "color": "#eab308",
+      "support": 0.1171,
+      "x": 418.34,
+      "y": 320.51
+    },
+    {
+      "id": "Creamy Peanut Butter",
+      "name": "Creamy Peanut Butter",
+      "dept": "Pantry",
+      "price": 3.79,
+      "color": "#a855f7",
+      "support": 0.1663,
+      "x": 332.84,
+      "y": 382.63
+    },
+    {
+      "id": "Organic Strawberry Jam",
+      "name": "Organic Strawberry Jam",
+      "dept": "Pantry",
+      "price": 3.29,
+      "color": "#a855f7",
+      "support": 0.163,
+      "x": 227.16,
+      "y": 382.63
+    },
+    {
+      "id": "Artisanal Sourdough Bread",
+      "name": "Artisanal Sourdough Bread",
+      "dept": "Bakery & Deli",
+      "price": 4.99,
+      "color": "#f59e0b",
+      "support": 0.3968,
+      "x": 141.66,
+      "y": 320.51
+    },
+    {
+      "id": "Organic Whole Milk",
+      "name": "Organic Whole Milk",
+      "dept": "Dairy & Eggs",
+      "price": 3.89,
+      "color": "#38bdf8",
+      "support": 0.3354,
+      "x": 109.0,
+      "y": 220.0
+    },
+    {
+      "id": "Extra Virgin Olive Oil",
+      "name": "Extra Virgin Olive Oil",
+      "dept": "Pantry",
+      "price": 9.99,
+      "color": "#a855f7",
+      "support": 0.2875,
+      "x": 141.66,
+      "y": 119.49
+    },
+    {
+      "id": "Oven Roasted Turkey Breast",
+      "name": "Oven Roasted Turkey Breast",
+      "dept": "Bakery & Deli",
+      "price": 6.49,
+      "color": "#f59e0b",
+      "support": 0.1214,
+      "x": 227.16,
+      "y": 57.37
+    },
+    {
+      "id": "Organic Baby Spinach",
+      "name": "Organic Baby Spinach",
+      "dept": "Produce",
+      "price": 3.49,
+      "color": "#10b981",
+      "support": 0.2,
+      "x": 332.84,
+      "y": 57.37
+    },
+    {
+      "id": "Roasted Salted Almonds",
+      "name": "Roasted Salted Almonds",
+      "dept": "Snacks",
+      "price": 6.99,
+      "color": "#eab308",
+      "support": 0.1248,
+      "x": 418.34,
+      "y": 119.49
+    }
+  ],
+  "links": [
+    {
+      "source": "Organic Bananas",
+      "target": "Creamy Peanut Butter",
+      "lift": 6.069,
+      "confidence": 0.7495,
+      "support": 0.0362,
+      "rule_str": "Organic Bananas + Sea Salt Kettle Chips \u2794 Creamy Peanut Butter + Organic Strawberry Jam"
+    },
+    {
+      "source": "Creamy Peanut Butter",
+      "target": "Artisanal Sourdough Bread",
+      "lift": 5.916,
+      "confidence": 0.7649,
+      "support": 0.0615,
+      "rule_str": "Creamy Peanut Butter + Organic Bananas \u2794 Artisanal Sourdough Bread + Organic Strawberry Jam"
+    },
+    {
+      "source": "Artisanal Sourdough Bread",
+      "target": "Creamy Peanut Butter",
+      "lift": 5.916,
+      "confidence": 0.4756,
+      "support": 0.0615,
+      "rule_str": "Artisanal Sourdough Bread + Organic Strawberry Jam \u2794 Creamy Peanut Butter + Organic Bananas"
+    },
+    {
+      "source": "Creamy Peanut Butter",
+      "target": "Organic Bananas",
+      "lift": 5.887,
+      "confidence": 0.4751,
+      "support": 0.0362,
+      "rule_str": "Creamy Peanut Butter + Sea Salt Kettle Chips \u2794 Organic Bananas + Organic Strawberry Jam"
+    },
+    {
+      "source": "Organic Bananas",
+      "target": "Creamy Peanut Butter",
+      "lift": 5.887,
+      "confidence": 0.4486,
+      "support": 0.0362,
+      "rule_str": "Organic Bananas + Organic Strawberry Jam \u2794 Creamy Peanut Butter + Sea Salt Kettle Chips"
+    },
+    {
+      "source": "Organic Strawberry Jam",
+      "target": "Creamy Peanut Butter",
+      "lift": 5.87,
+      "confidence": 0.472,
+      "support": 0.0362,
+      "rule_str": "Organic Strawberry Jam + Sea Salt Kettle Chips \u2794 Creamy Peanut Butter + Organic Bananas"
+    },
+    {
+      "source": "Creamy Peanut Butter",
+      "target": "Organic Strawberry Jam",
+      "lift": 5.87,
+      "confidence": 0.4502,
+      "support": 0.0362,
+      "rule_str": "Creamy Peanut Butter + Organic Bananas \u2794 Organic Strawberry Jam + Sea Salt Kettle Chips"
+    },
+    {
+      "source": "Creamy Peanut Butter",
+      "target": "Artisanal Sourdough Bread",
+      "lift": 5.856,
+      "confidence": 0.7572,
+      "support": 0.0577,
+      "rule_str": "Creamy Peanut Butter + Sea Salt Kettle Chips \u2794 Artisanal Sourdough Bread + Organic Strawberry Jam"
+    },
+    {
+      "source": "Artisanal Sourdough Bread",
+      "target": "Creamy Peanut Butter",
+      "lift": 5.856,
+      "confidence": 0.4462,
+      "support": 0.0577,
+      "rule_str": "Artisanal Sourdough Bread + Organic Strawberry Jam \u2794 Creamy Peanut Butter + Sea Salt Kettle Chips"
+    },
+    {
+      "source": "Creamy Peanut Butter",
+      "target": "Organic Strawberry Jam",
+      "lift": 5.798,
+      "confidence": 0.4963,
+      "support": 0.0399,
+      "rule_str": "Creamy Peanut Butter + Organic Bananas \u2794 Organic Strawberry Jam + Organic Whole Milk"
+    },
+    {
+      "source": "Organic Strawberry Jam",
+      "target": "Creamy Peanut Butter",
+      "lift": 5.798,
+      "confidence": 0.4661,
+      "support": 0.0399,
+      "rule_str": "Organic Strawberry Jam + Organic Whole Milk \u2794 Creamy Peanut Butter + Organic Bananas"
+    },
+    {
+      "source": "Creamy Peanut Butter",
+      "target": "Organic Strawberry Jam",
+      "lift": 5.795,
+      "confidence": 0.4961,
+      "support": 0.0378,
+      "rule_str": "Creamy Peanut Butter + Sea Salt Kettle Chips \u2794 Organic Strawberry Jam + Organic Whole Milk"
+    },
+    {
+      "source": "Organic Strawberry Jam",
+      "target": "Creamy Peanut Butter",
+      "lift": 5.795,
+      "confidence": 0.4416,
+      "support": 0.0378,
+      "rule_str": "Organic Strawberry Jam + Organic Whole Milk \u2794 Creamy Peanut Butter + Sea Salt Kettle Chips"
+    },
+    {
+      "source": "Organic Bananas",
+      "target": "Artisanal Sourdough Bread",
+      "lift": 5.791,
+      "confidence": 0.7621,
+      "support": 0.0615,
+      "rule_str": "Organic Bananas + Organic Strawberry Jam \u2794 Artisanal Sourdough Bread + Creamy Peanut Butter"
+    },
+    {
+      "source": "Artisanal Sourdough Bread",
+      "target": "Organic Bananas",
+      "lift": 5.791,
+      "confidence": 0.4673,
+      "support": 0.0615,
+      "rule_str": "Artisanal Sourdough Bread + Creamy Peanut Butter \u2794 Organic Bananas + Organic Strawberry Jam"
+    },
+    {
+      "source": "Organic Strawberry Jam",
+      "target": "Artisanal Sourdough Bread",
+      "lift": 5.716,
+      "confidence": 0.7523,
+      "support": 0.0577,
+      "rule_str": "Organic Strawberry Jam + Sea Salt Kettle Chips \u2794 Artisanal Sourdough Bread + Creamy Peanut Butter"
+    },
+    {
+      "source": "Artisanal Sourdough Bread",
+      "target": "Organic Strawberry Jam",
+      "lift": 5.716,
+      "confidence": 0.4384,
+      "support": 0.0577,
+      "rule_str": "Artisanal Sourdough Bread + Creamy Peanut Butter \u2794 Organic Strawberry Jam + Sea Salt Kettle Chips"
+    },
+    {
+      "source": "Organic Bananas",
+      "target": "Artisanal Sourdough Bread",
+      "lift": 5.668,
+      "confidence": 0.7329,
+      "support": 0.0354,
+      "rule_str": "Organic Bananas + Sea Salt Kettle Chips \u2794 Artisanal Sourdough Bread + Organic Strawberry Jam"
+    },
+    {
+      "source": "Organic Bananas",
+      "target": "Artisanal Sourdough Bread",
+      "lift": 5.664,
+      "confidence": 0.7453,
+      "support": 0.036,
+      "rule_str": "Organic Bananas + Sea Salt Kettle Chips \u2794 Artisanal Sourdough Bread + Creamy Peanut Butter"
+    },
+    {
+      "source": "Organic Bananas",
+      "target": "Creamy Peanut Butter",
+      "lift": 5.644,
+      "confidence": 0.4944,
+      "support": 0.0399,
+      "rule_str": "Organic Bananas + Organic Strawberry Jam \u2794 Creamy Peanut Butter + Organic Whole Milk"
+    },
+    {
+      "source": "Creamy Peanut Butter",
+      "target": "Organic Bananas",
+      "lift": 5.644,
+      "confidence": 0.4555,
+      "support": 0.0399,
+      "rule_str": "Creamy Peanut Butter + Organic Whole Milk \u2794 Organic Bananas + Organic Strawberry Jam"
+    },
+    {
+      "source": "Organic Strawberry Jam",
+      "target": "Creamy Peanut Butter",
+      "lift": 5.626,
+      "confidence": 0.4928,
+      "support": 0.0378,
+      "rule_str": "Organic Strawberry Jam + Sea Salt Kettle Chips \u2794 Creamy Peanut Butter + Organic Whole Milk"
+    },
+    {
+      "source": "Creamy Peanut Butter",
+      "target": "Organic Strawberry Jam",
+      "lift": 5.626,
+      "confidence": 0.4315,
+      "support": 0.0378,
+      "rule_str": "Creamy Peanut Butter + Organic Whole Milk \u2794 Organic Strawberry Jam + Sea Salt Kettle Chips"
+    },
+    {
+      "source": "Artisanal Sourdough Bread",
+      "target": "Creamy Peanut Butter",
+      "lift": 5.439,
+      "confidence": 0.6717,
+      "support": 0.0577,
+      "rule_str": "Artisanal Sourdough Bread + Sea Salt Kettle Chips \u2794 Creamy Peanut Butter + Organic Strawberry Jam"
+    },
+    {
+      "source": "Creamy Peanut Butter",
+      "target": "Artisanal Sourdough Bread",
+      "lift": 5.439,
+      "confidence": 0.4672,
+      "support": 0.0577,
+      "rule_str": "Creamy Peanut Butter + Organic Strawberry Jam \u2794 Artisanal Sourdough Bread + Sea Salt Kettle Chips"
+    },
+    {
+      "source": "Organic Strawberry Jam",
+      "target": "Artisanal Sourdough Bread",
+      "lift": 5.424,
+      "confidence": 0.7138,
+      "support": 0.0611,
+      "rule_str": "Organic Strawberry Jam + Organic Whole Milk \u2794 Artisanal Sourdough Bread + Creamy Peanut Butter"
+    },
+    {
+      "source": "Artisanal Sourdough Bread",
+      "target": "Organic Strawberry Jam",
+      "lift": 5.424,
+      "confidence": 0.4643,
+      "support": 0.0611,
+      "rule_str": "Artisanal Sourdough Bread + Creamy Peanut Butter \u2794 Organic Strawberry Jam + Organic Whole Milk"
+    },
+    {
+      "source": "Creamy Peanut Butter",
+      "target": "Organic Strawberry Jam",
+      "lift": 5.406,
+      "confidence": 0.8811,
+      "support": 0.0378,
+      "rule_str": "Creamy Peanut Butter + Organic Whole Milk + Sea Salt Kettle Chips \u2794 Organic Strawberry Jam"
+    },
+    {
+      "source": "Artisanal Sourdough Bread",
+      "target": "Organic Strawberry Jam",
+      "lift": 5.405,
+      "confidence": 0.8811,
+      "support": 0.0615,
+      "rule_str": "Artisanal Sourdough Bread + Creamy Peanut Butter + Organic Bananas \u2794 Organic Strawberry Jam"
+    },
+    {
+      "source": "Organic Strawberry Jam",
+      "target": "Artisanal Sourdough Bread",
+      "lift": 5.405,
+      "confidence": 0.3773,
+      "support": 0.0615,
+      "rule_str": "Organic Strawberry Jam \u2794 Artisanal Sourdough Bread + Creamy Peanut Butter + Organic Bananas"
+    },
+    {
+      "source": "Creamy Peanut Butter",
+      "target": "Organic Strawberry Jam",
+      "lift": 5.404,
+      "confidence": 0.8808,
+      "support": 0.0362,
+      "rule_str": "Creamy Peanut Butter + Organic Bananas + Sea Salt Kettle Chips \u2794 Organic Strawberry Jam"
+    },
+    {
+      "source": "Creamy Peanut Butter",
+      "target": "Artisanal Sourdough Bread",
+      "lift": 5.394,
+      "confidence": 0.6975,
+      "support": 0.0611,
+      "rule_str": "Creamy Peanut Butter + Organic Whole Milk \u2794 Artisanal Sourdough Bread + Organic Strawberry Jam"
+    },
+    {
+      "source": "Artisanal Sourdough Bread",
+      "target": "Creamy Peanut Butter",
+      "lift": 5.394,
+      "confidence": 0.4725,
+      "support": 0.0611,
+      "rule_str": "Artisanal Sourdough Bread + Organic Strawberry Jam \u2794 Creamy Peanut Butter + Organic Whole Milk"
+    },
+    {
+      "source": "Creamy Peanut Butter",
+      "target": "Organic Strawberry Jam",
+      "lift": 5.38,
+      "confidence": 0.8769,
+      "support": 0.0399,
+      "rule_str": "Creamy Peanut Butter + Organic Bananas + Organic Whole Milk \u2794 Organic Strawberry Jam"
+    },
+    {
+      "source": "Organic Bananas",
+      "target": "Creamy Peanut Butter",
+      "lift": 5.368,
+      "confidence": 0.8926,
+      "support": 0.0399,
+      "rule_str": "Organic Bananas + Organic Strawberry Jam + Organic Whole Milk \u2794 Creamy Peanut Butter"
+    },
+    {
+      "source": "Organic Bananas",
+      "target": "Creamy Peanut Butter",
+      "lift": 5.362,
+      "confidence": 0.8916,
+      "support": 0.0362,
+      "rule_str": "Organic Bananas + Organic Strawberry Jam + Sea Salt Kettle Chips \u2794 Creamy Peanut Butter"
+    },
+    {
+      "source": "Artisanal Sourdough Bread",
+      "target": "Organic Strawberry Jam",
+      "lift": 5.355,
+      "confidence": 0.8729,
+      "support": 0.0577,
+      "rule_str": "Artisanal Sourdough Bread + Creamy Peanut Butter + Sea Salt Kettle Chips \u2794 Organic Strawberry Jam"
+    },
+    {
+      "source": "Organic Strawberry Jam",
+      "target": "Artisanal Sourdough Bread",
+      "lift": 5.355,
+      "confidence": 0.354,
+      "support": 0.0577,
+      "rule_str": "Organic Strawberry Jam \u2794 Artisanal Sourdough Bread + Creamy Peanut Butter + Sea Salt Kettle Chips"
+    },
+    {
+      "source": "Creamy Peanut Butter",
+      "target": "Organic Strawberry Jam",
+      "lift": 5.346,
+      "confidence": 0.8714,
+      "support": 0.0664,
+      "rule_str": "Creamy Peanut Butter + Sea Salt Kettle Chips \u2794 Organic Strawberry Jam"
+    },
+    {
+      "source": "Organic Strawberry Jam",
+      "target": "Creamy Peanut Butter",
+      "lift": 5.346,
+      "confidence": 0.4074,
+      "support": 0.0664,
+      "rule_str": "Organic Strawberry Jam \u2794 Creamy Peanut Butter + Sea Salt Kettle Chips"
+    },
+    {
+      "source": "Organic Whole Milk",
+      "target": "Creamy Peanut Butter",
+      "lift": 5.342,
+      "confidence": 0.6597,
+      "support": 0.0378,
+      "rule_str": "Organic Whole Milk + Sea Salt Kettle Chips \u2794 Creamy Peanut Butter + Organic Strawberry Jam"
+    },
+    {
+      "source": "Creamy Peanut Butter",
+      "target": "Organic Strawberry Jam",
+      "lift": 5.334,
+      "confidence": 0.8694,
+      "support": 0.0699,
+      "rule_str": "Creamy Peanut Butter + Organic Bananas \u2794 Organic Strawberry Jam"
+    },
+    {
+      "source": "Organic Strawberry Jam",
+      "target": "Creamy Peanut Butter",
+      "lift": 5.334,
+      "confidence": 0.4288,
+      "support": 0.0699,
+      "rule_str": "Organic Strawberry Jam \u2794 Creamy Peanut Butter + Organic Bananas"
+    },
+    {
+      "source": "Artisanal Sourdough Bread",
+      "target": "Creamy Peanut Butter",
+      "lift": 5.313,
+      "confidence": 0.8836,
+      "support": 0.0615,
+      "rule_str": "Artisanal Sourdough Bread + Organic Bananas + Organic Strawberry Jam \u2794 Creamy Peanut Butter"
+    },
+    {
+      "source": "Creamy Peanut Butter",
+      "target": "Artisanal Sourdough Bread",
+      "lift": 5.313,
+      "confidence": 0.3698,
+      "support": 0.0615,
+      "rule_str": "Creamy Peanut Butter \u2794 Artisanal Sourdough Bread + Organic Bananas + Organic Strawberry Jam"
+    },
+    {
+      "source": "Organic Strawberry Jam",
+      "target": "Creamy Peanut Butter",
+      "lift": 5.311,
+      "confidence": 0.8832,
+      "support": 0.0378,
+      "rule_str": "Organic Strawberry Jam + Organic Whole Milk + Sea Salt Kettle Chips \u2794 Creamy Peanut Butter"
+    },
+    {
+      "source": "Artisanal Sourdough Bread",
+      "target": "Organic Strawberry Jam",
+      "lift": 5.271,
+      "confidence": 0.8592,
+      "support": 0.0354,
+      "rule_str": "Artisanal Sourdough Bread + Organic Bananas + Sea Salt Kettle Chips \u2794 Organic Strawberry Jam"
+    },
+    {
+      "source": "Artisanal Sourdough Bread",
+      "target": "Creamy Peanut Butter",
+      "lift": 5.265,
+      "confidence": 0.8756,
+      "support": 0.0577,
+      "rule_str": "Artisanal Sourdough Bread + Organic Strawberry Jam + Sea Salt Kettle Chips \u2794 Creamy Peanut Butter"
+    },
+    {
+      "source": "Artisanal Sourdough Bread",
+      "target": "Creamy Peanut Butter",
+      "lift": 5.254,
+      "confidence": 0.8738,
+      "support": 0.036,
+      "rule_str": "Artisanal Sourdough Bread + Organic Bananas + Sea Salt Kettle Chips \u2794 Creamy Peanut Butter"
+    },
+    {
+      "source": "Extra Virgin Olive Oil",
+      "target": "Organic Baby Spinach",
+      "lift": 5.213,
+      "confidence": 0.4733,
+      "support": 0.0426,
+      "rule_str": "Extra Virgin Olive Oil + Oven Roasted Turkey Breast \u2794 Organic Baby Spinach + Roasted Salted Almonds"
+    }
+  ]
+}
