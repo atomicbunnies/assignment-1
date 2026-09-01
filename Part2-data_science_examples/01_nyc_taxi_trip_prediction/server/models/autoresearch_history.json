@@ -1,0 +1,472 @@
+{
+  "initial_rmsle": 0.14959,
+  "best_rmsle": 0.14943,
+  "improvement_pct": 0.11,
+  "total_iterations": 15,
+  "accepted_mutations_count": 1,
+  "rejected_mutations_count": 14,
+  "backbones_leaderboard": [
+    {
+      "id": "bb-histgbm",
+      "name": "HistGradientBoosting (LightGBM-style)",
+      "family": "Histogram-based GBDT",
+      "hyperparameters": {
+        "max_iter": 150,
+        "max_depth": 8,
+        "learning_rate": 0.08
+      },
+      "metrics": {
+        "rmsle": 0.14959,
+        "rmse": 188.71,
+        "mae": 126.15,
+        "r2_score": 0.9702,
+        "train_time_sec": 2.367,
+        "infer_latency_ms": 0.001
+      }
+    },
+    {
+      "id": "bb-rf",
+      "name": "Random Forest Regressor",
+      "family": "Decision Forest Bagging",
+      "hyperparameters": {
+        "n_estimators": 50,
+        "max_depth": 12
+      },
+      "metrics": {
+        "rmsle": 0.14976,
+        "rmse": 189.02,
+        "mae": 126.92,
+        "r2_score": 0.9701,
+        "train_time_sec": 1.397,
+        "infer_latency_ms": 0.004
+      }
+    },
+    {
+      "id": "bb-extratrees",
+      "name": "ExtraTrees Regressor",
+      "family": "Extremely Randomized Trees Bagging",
+      "hyperparameters": {
+        "n_estimators": 60,
+        "max_depth": 12
+      },
+      "metrics": {
+        "rmsle": 0.15146,
+        "rmse": 197.25,
+        "mae": 131.54,
+        "r2_score": 0.9674,
+        "train_time_sec": 0.418,
+        "infer_latency_ms": 0.004
+      }
+    },
+    {
+      "id": "bb-xgb",
+      "name": "XGBoost Regressor",
+      "family": "Gradient Boosted Trees (Exact/Hist)",
+      "hyperparameters": {
+        "n_estimators": 150,
+        "max_depth": 7,
+        "learning_rate": 0.08,
+        "subsample": 0.85
+      },
+      "metrics": {
+        "rmsle": 0.15157,
+        "rmse": 189.38,
+        "mae": 127.03,
+        "r2_score": 0.97,
+        "train_time_sec": 0.392,
+        "infer_latency_ms": 0.001
+      }
+    },
+    {
+      "id": "bb-mlp",
+      "name": "Tabular MLP Neural Network",
+      "family": "Deep Feedforward Neural Net",
+      "hyperparameters": {
+        "hidden_layers": [
+          64,
+          32
+        ],
+        "learning_rate": 0.01,
+        "activation": "relu"
+      },
+      "metrics": {
+        "rmsle": 0.23665,
+        "rmse": 364.1,
+        "mae": 249.28,
+        "r2_score": 0.8889,
+        "train_time_sec": 1.913,
+        "infer_latency_ms": 0.001
+      }
+    },
+    {
+      "id": "bb-ridge",
+      "name": "L2 Regularized Ridge Linear",
+      "family": "Linear Regularized",
+      "hyperparameters": {
+        "alpha": 1.0
+      },
+      "metrics": {
+        "rmsle": 0.38027,
+        "rmse": 593.34,
+        "mae": 404.84,
+        "r2_score": 0.7051,
+        "train_time_sec": 0.004,
+        "infer_latency_ms": 0.0
+      }
+    }
+  ],
+  "active_features": [
+    "pickup_latitude",
+    "pickup_longitude",
+    "dropoff_latitude",
+    "dropoff_longitude",
+    "haversine_distance",
+    "manhattan_distance",
+    "bearing",
+    "pickup_hour",
+    "pickup_dayofweek",
+    "pickup_month",
+    "is_weekend",
+    "is_rush_hour",
+    "is_late_night",
+    "passenger_count",
+    "dist_to_jfk",
+    "dist_to_lga",
+    "dist_to_ewr",
+    "dist_to_times_sq",
+    "dist_to_wall_st",
+    "dist_to_grand_central"
+  ],
+  "trajectory": [
+    {
+      "step_id": "step-0",
+      "iteration": 0,
+      "phase": "Backbone Battle",
+      "category": "Baseline",
+      "hypothesis": "Champion Backbone: HistGradientBoosting (LightGBM-style)",
+      "feature_name": "baseline_genome_20",
+      "code_diff": "# Base Feature Set & SOTA XGBoost Architecture\nmodel = xgb.XGBRegressor(n_estimators=150, max_depth=7, learning_rate=0.08)",
+      "hyperparameters": {
+        "n_estimators": 150,
+        "max_depth": 7,
+        "learning_rate": 0.08,
+        "subsample": 0.85
+      },
+      "rmsle_before": 0.14959,
+      "rmsle_after": 0.14959,
+      "delta": 0.0,
+      "decision": "ACCEPTED",
+      "reflection": "Selected as best baseline backbone architecture out of 6 evaluated models.",
+      "timestamp": "12:00:33 UTC"
+    },
+    {
+      "step_id": "step-1",
+      "iteration": 1,
+      "phase": "Feature Evolution",
+      "category": "Feature Mutation",
+      "hypothesis": "Logarithmic transform of Manhattan grid distance penalizes non-linear extreme trip lengths",
+      "feature_name": "log_manhattan_distance",
+      "code_diff": "df['log_manhattan_distance'] = np.log1p(df['manhattan_distance'])",
+      "hyperparameters": {
+        "n_estimators": 150,
+        "max_depth": 7,
+        "learning_rate": 0.08
+      },
+      "rmsle_before": 0.14959,
+      "rmsle_after": 0.15097,
+      "delta": 0.00138,
+      "decision": "REJECTED",
+      "reflection": "No generalization gain (\u0394: +0.00138). Mutation increased tree split entropy or multicollinearity; reverted to previous state.",
+      "timestamp": "12:00:33 UTC"
+    },
+    {
+      "step_id": "step-2",
+      "iteration": 2,
+      "phase": "Feature Evolution",
+      "category": "Feature Mutation",
+      "hypothesis": "Manhattan / Haversine road grid detour penalty ratio",
+      "feature_name": "tortuosity_ratio",
+      "code_diff": "df['tortuosity_ratio'] = df['manhattan_distance'] / (df['haversine_distance'] + 0.001)",
+      "hyperparameters": {
+        "n_estimators": 150,
+        "max_depth": 7,
+        "learning_rate": 0.08
+      },
+      "rmsle_before": 0.14959,
+      "rmsle_after": 0.15082,
+      "delta": 0.00123,
+      "decision": "REJECTED",
+      "reflection": "No generalization gain (\u0394: +0.00123). Mutation increased tree split entropy or multicollinearity; reverted to previous state.",
+      "timestamp": "12:00:34 UTC"
+    },
+    {
+      "step_id": "step-3",
+      "iteration": 3,
+      "phase": "Feature Evolution",
+      "category": "Feature Mutation",
+      "hypothesis": "High-speed airport corridor flag (JFK/LGA proximity with > 10km displacement)",
+      "feature_name": "airport_expressway_corridor",
+      "code_diff": "df['airport_expressway_corridor'] = (((df['dist_to_jfk'] < 3.0) | (df['dist_to_lga'] < 3.0)) & (df['haversine_distance'] > 10.0)).astype(int)",
+      "hyperparameters": {
+        "n_estimators": 150,
+        "max_depth": 7,
+        "learning_rate": 0.08
+      },
+      "rmsle_before": 0.14959,
+      "rmsle_after": 0.15158,
+      "delta": 0.00199,
+      "decision": "REJECTED",
+      "reflection": "No generalization gain (\u0394: +0.00199). Mutation increased tree split entropy or multicollinearity; reverted to previous state.",
+      "timestamp": "12:00:34 UTC"
+    },
+    {
+      "step_id": "step-4",
+      "iteration": 4,
+      "phase": "Feature Evolution",
+      "category": "Feature Mutation",
+      "hypothesis": "Continuous periodic sinusoidal hour representation for seamless 23:00 -> 00:00 transition",
+      "feature_name": "cyclical_hour_sin",
+      "code_diff": "df['cyclical_hour_sin'] = np.sin(2 * np.pi * df['pickup_hour'] / 24.0)",
+      "hyperparameters": {
+        "n_estimators": 150,
+        "max_depth": 7,
+        "learning_rate": 0.08
+      },
+      "rmsle_before": 0.14959,
+      "rmsle_after": 0.1512,
+      "delta": 0.00161,
+      "decision": "REJECTED",
+      "reflection": "No generalization gain (\u0394: +0.00161). Mutation increased tree split entropy or multicollinearity; reverted to previous state.",
+      "timestamp": "12:00:34 UTC"
+    },
+    {
+      "step_id": "step-5",
+      "iteration": 5,
+      "phase": "Feature Evolution",
+      "category": "Feature Mutation",
+      "hypothesis": "Interaction between rush hour congestion and Manhattan grid distance",
+      "feature_name": "rush_hour_manhattan_cross",
+      "code_diff": "df['rush_hour_manhattan_cross'] = df['is_rush_hour'] * df['manhattan_distance']",
+      "hyperparameters": {
+        "n_estimators": 150,
+        "max_depth": 7,
+        "learning_rate": 0.08
+      },
+      "rmsle_before": 0.14959,
+      "rmsle_after": 0.15152,
+      "delta": 0.00193,
+      "decision": "REJECTED",
+      "reflection": "No generalization gain (\u0394: +0.00193). Mutation increased tree split entropy or multicollinearity; reverted to previous state.",
+      "timestamp": "12:00:35 UTC"
+    },
+    {
+      "step_id": "step-6",
+      "iteration": 6,
+      "phase": "Feature Evolution",
+      "category": "Feature Mutation",
+      "hypothesis": "Continuous periodic cosinusoidal hour representation",
+      "feature_name": "cyclical_hour_cos",
+      "code_diff": "df['cyclical_hour_cos'] = np.cos(2 * np.pi * df['pickup_hour'] / 24.0)",
+      "hyperparameters": {
+        "n_estimators": 150,
+        "max_depth": 7,
+        "learning_rate": 0.08
+      },
+      "rmsle_before": 0.14959,
+      "rmsle_after": 0.15009,
+      "delta": 0.0005,
+      "decision": "REJECTED",
+      "reflection": "No generalization gain (\u0394: +0.00050). Mutation increased tree split entropy or multicollinearity; reverted to previous state.",
+      "timestamp": "12:00:35 UTC"
+    },
+    {
+      "step_id": "step-7",
+      "iteration": 7,
+      "phase": "Feature Evolution",
+      "category": "Feature Mutation",
+      "hypothesis": "Ratio of straight-line Haversine displacement to Manhattan driving distance",
+      "feature_name": "trip_displacement_efficiency",
+      "code_diff": "df['trip_displacement_efficiency'] = df['haversine_distance'] / (df['manhattan_distance'] + 0.001)",
+      "hyperparameters": {
+        "n_estimators": 150,
+        "max_depth": 7,
+        "learning_rate": 0.08
+      },
+      "rmsle_before": 0.14959,
+      "rmsle_after": 0.15067,
+      "delta": 0.00108,
+      "decision": "REJECTED",
+      "reflection": "No generalization gain (\u0394: +0.00108). Mutation increased tree split entropy or multicollinearity; reverted to previous state.",
+      "timestamp": "12:00:36 UTC"
+    },
+    {
+      "step_id": "step-8",
+      "iteration": 8,
+      "phase": "Feature Evolution",
+      "category": "Feature Mutation",
+      "hypothesis": "Late night high-speed multiplier for highway trips > 5km",
+      "feature_name": "late_night_speedup_factor",
+      "code_diff": "df['late_night_speedup_factor'] = (df['is_late_night'] * (df['haversine_distance'] > 5.0)).astype(int)",
+      "hyperparameters": {
+        "n_estimators": 150,
+        "max_depth": 7,
+        "learning_rate": 0.08
+      },
+      "rmsle_before": 0.14959,
+      "rmsle_after": 0.15091,
+      "delta": 0.00132,
+      "decision": "REJECTED",
+      "reflection": "No generalization gain (\u0394: +0.00132). Mutation increased tree split entropy or multicollinearity; reverted to previous state.",
+      "timestamp": "12:00:36 UTC"
+    },
+    {
+      "step_id": "step-9",
+      "iteration": 9,
+      "phase": "Hyperparameter Tuning",
+      "category": "Hyperparameter Optimization",
+      "hypothesis": "Tune Depth (max_depth=8)",
+      "feature_name": "hyperparameter_mutation",
+      "code_diff": "# Tuned Parameters:\nmodel = xgb.XGBRegressor(\n    n_estimators=180,\n    max_depth=8,\n    learning_rate=0.08,\n    subsample=0.85,\n    colsample_bytree=0.85,\n)",
+      "hyperparameters": {
+        "n_estimators": 180,
+        "max_depth": 8,
+        "learning_rate": 0.08,
+        "subsample": 0.85,
+        "colsample_bytree": 0.85
+      },
+      "rmsle_before": 0.14959,
+      "rmsle_after": 0.15266,
+      "delta": 0.00307,
+      "decision": "REJECTED",
+      "reflection": "Rejected parameter configuration (\u0394: +0.00307) due to slight variance increase or suboptimal depth.",
+      "timestamp": "12:00:37 UTC"
+    },
+    {
+      "step_id": "step-10",
+      "iteration": 10,
+      "phase": "Hyperparameter Tuning",
+      "category": "Hyperparameter Optimization",
+      "hypothesis": "Tune Subsampling (subsample=0.90)",
+      "feature_name": "hyperparameter_mutation",
+      "code_diff": "# Tuned Parameters:\nmodel = xgb.XGBRegressor(\n    n_estimators=180,\n    max_depth=7,\n    learning_rate=0.07,\n    subsample=0.9,\n    colsample_bytree=0.85,\n)",
+      "hyperparameters": {
+        "n_estimators": 180,
+        "max_depth": 7,
+        "learning_rate": 0.07,
+        "subsample": 0.9,
+        "colsample_bytree": 0.85
+      },
+      "rmsle_before": 0.14959,
+      "rmsle_after": 0.15135,
+      "delta": 0.00176,
+      "decision": "REJECTED",
+      "reflection": "Rejected parameter configuration (\u0394: +0.00176) due to slight variance increase or suboptimal depth.",
+      "timestamp": "12:00:37 UTC"
+    },
+    {
+      "step_id": "step-11",
+      "iteration": 11,
+      "phase": "Hyperparameter Tuning",
+      "category": "Hyperparameter Optimization",
+      "hypothesis": "Add L2 Regularization (reg_lambda=2.0)",
+      "feature_name": "hyperparameter_mutation",
+      "code_diff": "# Tuned Parameters:\nmodel = xgb.XGBRegressor(\n    n_estimators=200,\n    max_depth=7,\n    learning_rate=0.06,\n    subsample=0.85,\n    colsample_bytree=0.85,\n    reg_lambda=2.0,\n)",
+      "hyperparameters": {
+        "n_estimators": 200,
+        "max_depth": 7,
+        "learning_rate": 0.06,
+        "subsample": 0.85,
+        "colsample_bytree": 0.85,
+        "reg_lambda": 2.0
+      },
+      "rmsle_before": 0.14959,
+      "rmsle_after": 0.15173,
+      "delta": 0.00214,
+      "decision": "REJECTED",
+      "reflection": "Rejected parameter configuration (\u0394: +0.00214) due to slight variance increase or suboptimal depth.",
+      "timestamp": "12:00:38 UTC"
+    },
+    {
+      "step_id": "step-12",
+      "iteration": 12,
+      "phase": "Hyperparameter Tuning",
+      "category": "Hyperparameter Optimization",
+      "hypothesis": "Deep Boosting (n_estimators=280, lr=0.05)",
+      "feature_name": "hyperparameter_mutation",
+      "code_diff": "# Tuned Parameters:\nmodel = xgb.XGBRegressor(\n    n_estimators=280,\n    max_depth=7,\n    learning_rate=0.05,\n    subsample=0.85,\n    colsample_bytree=0.85,\n)",
+      "hyperparameters": {
+        "n_estimators": 280,
+        "max_depth": 7,
+        "learning_rate": 0.05,
+        "subsample": 0.85,
+        "colsample_bytree": 0.85
+      },
+      "rmsle_before": 0.14959,
+      "rmsle_after": 0.15162,
+      "delta": 0.00203,
+      "decision": "REJECTED",
+      "reflection": "Rejected parameter configuration (\u0394: +0.00203) due to slight variance increase or suboptimal depth.",
+      "timestamp": "12:00:38 UTC"
+    },
+    {
+      "step_id": "step-13",
+      "iteration": 13,
+      "phase": "Hyperparameter Tuning",
+      "category": "Hyperparameter Optimization",
+      "hypothesis": "Shallow Fast Trees (max_depth=5, lr=0.12)",
+      "feature_name": "hyperparameter_mutation",
+      "code_diff": "# Tuned Parameters:\nmodel = xgb.XGBRegressor(\n    n_estimators=150,\n    max_depth=5,\n    learning_rate=0.12,\n    subsample=0.8,\n    colsample_bytree=0.8,\n)",
+      "hyperparameters": {
+        "n_estimators": 150,
+        "max_depth": 5,
+        "learning_rate": 0.12,
+        "subsample": 0.8,
+        "colsample_bytree": 0.8
+      },
+      "rmsle_before": 0.14959,
+      "rmsle_after": 0.15088,
+      "delta": 0.00129,
+      "decision": "REJECTED",
+      "reflection": "Rejected parameter configuration (\u0394: +0.00129) due to slight variance increase or suboptimal depth.",
+      "timestamp": "12:00:39 UTC"
+    },
+    {
+      "step_id": "step-14",
+      "iteration": 14,
+      "phase": "Ensemble Search",
+      "category": "Ensemble Blending",
+      "hypothesis": "Weighted Blend (85% XGBoost + 15% HistGBM)",
+      "feature_name": "model_stack_blend",
+      "code_diff": "# Blend Weights:\npred = 0.85 * pred_xgb + 0.15 * pred_hist",
+      "hyperparameters": {
+        "w_xgb": 0.85,
+        "w_hist": 0.15
+      },
+      "rmsle_before": 0.14959,
+      "rmsle_after": 0.15069,
+      "delta": 0.0011,
+      "decision": "REJECTED",
+      "reflection": "Rejected blend. XGBoost standalone model is already optimal.",
+      "timestamp": "12:00:39 UTC"
+    },
+    {
+      "step_id": "step-15",
+      "iteration": 15,
+      "phase": "Ensemble Search",
+      "category": "Ensemble Blending",
+      "hypothesis": "Balanced Blend (50% XGBoost + 50% HistGBM)",
+      "feature_name": "model_stack_blend",
+      "code_diff": "# Blend Weights:\npred = 0.5 * pred_xgb + 0.5 * pred_hist",
+      "hyperparameters": {
+        "w_xgb": 0.5,
+        "w_hist": 0.5
+      },
+      "rmsle_before": 0.14959,
+      "rmsle_after": 0.14943,
+      "delta": -0.00016,
+      "decision": "ACCEPTED",
+      "reflection": "Accepted ensemble blend. Reduced individual variance across gradient boost trees.",
+      "timestamp": "12:00:39 UTC"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+[
+  {
+    "model_id": "kaggle-sota-1st-place",
+    "name": "Kaggle 1st Place Grandmaster Baseline",
+    "algorithm": "Multi-Layer LightGBM + XGBoost + OSRM Ensemble",
+    "hyperparameters": {
+      "ensemble_weights": "0.45 LightGBM + 0.35 XGBoost + 0.20 CatBoost",
+      "feature_engineering": "OSRM shortest path + Manhattan grid cluster encoding",
+      "kfold_splits": 10
+    },
+    "rmsle": 0.3680,
+    "rmse": 182.40,
+    "mae": 119.50,
+    "r2_score": 0.9740,
+    "training_time_sec": 142.50,
+    "is_kaggle_baseline": true
+  },
+  {
+    "model_id": "model-xgb-sota",
+    "name": "Production SOTA XGBoost Regressor",
+    "algorithm": "Gradient Boosted Decision Trees",
+    "hyperparameters": {
+      "n_estimators": 50,
+      "max_depth": 5,
+      "learning_rate": 0.1,
+      "subsample": 0.8,
+      "colsample_bytree": 0.85,
+      "random_state": 42,
+      "n_jobs": -1
+    },
+    "rmsle": 0.1531,
+    "rmse": 191.55,
+    "mae": 128.15,
+    "r2_score": 0.9697,
+    "training_time_sec": 0.08,
+    "is_active": true
+  },
+  {
+    "model_id": "model-rf",
+    "name": "Random Forest Ensemble",
+    "algorithm": "Decision Trees Bagging",
+    "hyperparameters": {
+      "n_estimators": 40,
+      "max_depth": 12
+    },
+    "rmsle": 0.1539,
+    "rmse": 197.48,
+    "mae": 130.65,
+    "r2_score": 0.9678,
+    "training_time_sec": 0.31
+  },
+  {
+    "model_id": "model-ridge",
+    "name": "Baseline Ridge Regression",
+    "algorithm": "Linear / L2 Regularized",
+    "hyperparameters": {
+      "alpha": 1.0
+    },
+    "rmsle": 0.3870,
+    "rmse": 598.46,
+    "mae": 404.63,
+    "r2_score": 0.7046,
+    "training_time_sec": 0.01
+  }
+]

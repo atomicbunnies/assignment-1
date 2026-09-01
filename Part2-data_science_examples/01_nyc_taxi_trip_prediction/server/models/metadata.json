@@ -1,0 +1,148 @@
+{
+  "model_name": "NYC Taxi SOTA Trip Duration Estimator",
+  "version": "1.0.0",
+  "trained_at": "2026-08-20 18:36:05 UTC",
+  "total_training_samples": 9988,
+  "feature_count": 20,
+  "best_model": "XGBoost Regressor",
+  "metrics": {
+    "rmsle": 0.1531,
+    "rmse_seconds": 191.55,
+    "mae_seconds": 128.15,
+    "mae_minutes": 2.14,
+    "r2_score": 0.9697
+  },
+  "hyperparameters": {
+    "n_estimators": 50,
+    "max_depth": 5,
+    "learning_rate": 0.1,
+    "subsample": 0.8,
+    "colsample_bytree": 0.85,
+    "random_state": 42,
+    "n_jobs": -1
+  },
+  "feature_columns": [
+    "pickup_latitude",
+    "pickup_longitude",
+    "dropoff_latitude",
+    "dropoff_longitude",
+    "haversine_distance",
+    "manhattan_distance",
+    "bearing",
+    "pickup_hour",
+    "pickup_dayofweek",
+    "pickup_month",
+    "is_weekend",
+    "is_rush_hour",
+    "is_late_night",
+    "passenger_count",
+    "dist_to_jfk",
+    "dist_to_lga",
+    "dist_to_ewr",
+    "dist_to_times_sq",
+    "dist_to_wall_st",
+    "dist_to_grand_central"
+  ],
+  "feature_importance": [
+    {
+      "feature": "manhattan_distance",
+      "importance": 0.6027,
+      "percentage": 60.3
+    },
+    {
+      "feature": "is_late_night",
+      "importance": 0.123,
+      "percentage": 12.3
+    },
+    {
+      "feature": "is_rush_hour",
+      "importance": 0.0728,
+      "percentage": 7.3
+    },
+    {
+      "feature": "haversine_distance",
+      "importance": 0.0647,
+      "percentage": 6.5
+    },
+    {
+      "feature": "pickup_hour",
+      "importance": 0.0432,
+      "percentage": 4.3
+    },
+    {
+      "feature": "pickup_dayofweek",
+      "importance": 0.0374,
+      "percentage": 3.7
+    },
+    {
+      "feature": "is_weekend",
+      "importance": 0.0098,
+      "percentage": 1.0
+    },
+    {
+      "feature": "passenger_count",
+      "importance": 0.0063,
+      "percentage": 0.6
+    },
+    {
+      "feature": "dist_to_times_sq",
+      "importance": 0.0045,
+      "percentage": 0.4
+    },
+    {
+      "feature": "pickup_month",
+      "importance": 0.0044,
+      "percentage": 0.4
+    },
+    {
+      "feature": "dropoff_latitude",
+      "importance": 0.0042,
+      "percentage": 0.4
+    },
+    {
+      "feature": "dist_to_grand_central",
+      "importance": 0.0037,
+      "percentage": 0.4
+    },
+    {
+      "feature": "bearing",
+      "importance": 0.0037,
+      "percentage": 0.4
+    },
+    {
+      "feature": "dist_to_lga",
+      "importance": 0.0034,
+      "percentage": 0.3
+    },
+    {
+      "feature": "dist_to_ewr",
+      "importance": 0.0032,
+      "percentage": 0.3
+    },
+    {
+      "feature": "dist_to_jfk",
+      "importance": 0.003,
+      "percentage": 0.3
+    },
+    {
+      "feature": "pickup_latitude",
+      "importance": 0.0028,
+      "percentage": 0.3
+    },
+    {
+      "feature": "dropoff_longitude",
+      "importance": 0.0025,
+      "percentage": 0.3
+    },
+    {
+      "feature": "dist_to_wall_st",
+      "importance": 0.0025,
+      "percentage": 0.2
+    },
+    {
+      "feature": "pickup_longitude",
+      "importance": 0.0023,
+      "percentage": 0.2
+    }
+  ]
+}

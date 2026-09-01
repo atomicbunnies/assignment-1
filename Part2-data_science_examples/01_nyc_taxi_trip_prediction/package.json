@@ -1,0 +1,14 @@
+{
+  "name": "nyc-taxi-data-science-project",
+  "version": "1.0.0",
+  "description": "End-to-End NYC Taxi Machine Learning Trip Duration & Fare System",
+  "scripts": {
+    "train": "cd ml && python train.py",
+    "dev:server": "cd server && python -m uvicorn main:app --host 127.0.0.1 --port 8000 --reload",
+    "dev:client": "cd client && npm run dev",
+    "dev": "node -e \"const { spawn } = require('child_process'); const s = spawn('python -m uvicorn main:app --host 127.0.0.1 --port 8000', { cwd: 'server', stdio: 'inherit', shell: true }); const c = spawn('npm run dev', { cwd: 'client', stdio: 'inherit', shell: true }); process.on('SIGINT', () => { s.kill(); c.kill(); process.exit(); });\"",
+    "build:client": "cd client && npm run build",
+    "test:server": "cd server && python test_api.py",
+    "test": "npm run test:server && npm run build:client"
+  }
+}
