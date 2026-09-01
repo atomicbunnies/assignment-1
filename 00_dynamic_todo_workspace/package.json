@@ -1,0 +1,13 @@
+{
+  "name": "fullstack-todo-app",
+  "version": "1.0.0",
+  "description": "Modern End-to-End Dynamic Todo List Application",
+  "scripts": {
+    "dev:server": "cd server && npm run dev",
+    "dev:client": "cd client && npm run dev",
+    "dev": "node -e \"const { spawn } = require('child_process'); const s = spawn('npm', ['run', 'dev'], { cwd: 'server', stdio: 'inherit', shell: true }); const c = spawn('npm', ['run', 'dev'], { cwd: 'client', stdio: 'inherit', shell: true }); process.on('SIGINT', () => { s.kill(); c.kill(); process.exit(); });\"",
+    "test:server": "cd server && node test_e2e.js",
+    "test:client": "cd client && node test_nlp.js",
+    "test": "npm run test:server && npm run test:client"
+  }
+}
