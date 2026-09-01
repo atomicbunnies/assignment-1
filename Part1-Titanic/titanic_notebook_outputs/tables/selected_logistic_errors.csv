@@ -1,0 +1,7 @@
+PassengerId,Actual,Prediction,SurvivalProbability,Pclass,Sex,Age,FareLog,Embarked,CabinKnown,FamilySize,IsAlone,Title,ErrorType
+298,0,1,0.9457415645512142,1,female,2.0,5.027492411162679,S,1,4,0,Miss,False positive
+200,0,1,0.7806112941544288,2,female,24.0,2.6390573296152584,S,0,1,1,Miss,False positive
+579,0,1,0.7543925904735638,3,female,,2.738146075922933,C,0,2,0,Mrs,False positive
+272,1,0,0.032942736242677795,3,male,25.0,0.0,S,0,1,1,Mr,False negative
+571,1,0,0.06359438360771189,2,male,62.0,2.4423470353692043,S,0,1,1,Mr,False negative
+805,1,0,0.07504236936836663,3,male,27.0,2.076311648670908,S,0,1,1,Mr,False negative
